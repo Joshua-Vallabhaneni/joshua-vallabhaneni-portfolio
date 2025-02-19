@@ -59,6 +59,8 @@ export default function Hero() {
             <div className="flex justify-center lg:justify-start space-x-4 mb-8">
               <a
                 href="https://github.com/Joshua-Vallabhaneni"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="GitHub Profile"
               >
@@ -66,6 +68,8 @@ export default function Hero() {
               </a>
               <a
                 href="https://linkedin.com/in/joshua-vallabhaneni"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="LinkedIn Profile"
               >
@@ -73,6 +77,8 @@ export default function Hero() {
               </a>
               <a
                 href="mailto:pjvallabhaneni@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="p-3 rounded-full bg-white/80 hover:bg-white dark:bg-gray-800/80 dark:hover:bg-gray-800 transition-colors duration-300 shadow-lg hover:shadow-xl"
                 aria-label="Email Contact"
               >

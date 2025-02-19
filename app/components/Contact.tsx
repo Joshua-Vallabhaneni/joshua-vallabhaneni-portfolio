@@ -74,6 +74,8 @@ export default function Contact() {
               <div className="space-y-6">
                 <a
                   href="mailto:pjvallabhaneni@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-300"
                 >
                   <Mail className="w-6 h-6 mr-3 text-blue-600" />

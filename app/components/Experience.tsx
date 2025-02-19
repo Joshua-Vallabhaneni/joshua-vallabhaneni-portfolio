@@ -10,8 +10,8 @@ export default function Experience() {
     {
       company: "AstraZeneca - Evinova",
       location: "Gaithersburg, MD",
-      period: "May 2024 - August 2024",
-      role: "Full-Time Software Engineer",
+      period: "May 2024 - Current",
+      role: "Full-Time Junior Software Engineer",
       logos: [
         {
           src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/AstraZeneca-zvEnjvcVUwFD6fzwItgByRWDbh70GK.png",

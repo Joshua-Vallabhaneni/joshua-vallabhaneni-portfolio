@@ -52,7 +52,7 @@ export default function Hero() {
               Full-Stack Developer
             </h2>
             <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto lg:mx-0">
-              Hi, I'm Joshua! I'm a Computer Science student at the University of Maryland, and I'm passionate about
+              Hi, I&apos;m Joshua! I&apos;m a Computer Science student at the University of Maryland, and I&apos;m passionate about
               developing predictive systems and AI applications. I love diving into complex problems and finding
               innovative solutions with technology.
             </p>

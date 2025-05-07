@@ -25,8 +25,8 @@ export default function Experience() {
       responsibilities: [
         "Working 40 hr/week as a full-time student at Evinova - a health-tech focused subsidiary within AstraZeneca.",
         "Currently engineering end-to-end frontend for production health analytics platform using Vite, React, & Storybook; developing real-time patient monitoring interface with D3.js and Framer Motion, achieving 40% reduction in clinical visits.",
-        "Leveraged Pandas for data ingestion, NumPy for array manipulations, SciPy for bandpass filtering, and Matplotlib for visualizations; streamlined PCA and signal analysis on time series data, contributing to 32% reduction in trial costs. Implemented a supervised learning model using scikit-learn's fine tree algorithm for binary and multi-class classification, achieving up to 96.9% accuracy.",
-        "Employed k-fold cross-validation for substantial bias reduction, and utilized confusion matrices to fine-tune classification thresholds, pivotal in accelerating trial timelines by 6 months.",
+        "Leveraged Pandas and NumPy for data processing, SciPy for bandpass filtering, and Matplotlib for visualizations; streamlined PCA and signal analysis on time series data, contributing to 32% reduction in trial costs.",
+        "Implemented supervised binary and multi-class classification models achieving 96.9\% accuracy; employed k-fold cross-validation and confusion matrices to fine-tune thresholds, accelerating trial timelines by 6 months.",
       ],
     },
     {

@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { motion } from "framer-motion"
-import { Github, Youtube, FileText, Newspaper } from "lucide-react"
+import { Github, Youtube, FileText, Newspaper, Twitter } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
@@ -128,6 +128,24 @@ function ProjectCard({
 
 export default function Projects() {
   const projects = [
+    {
+      title: "CodeShot: Pixel-Perfect AI Frontend Engineer",
+      description:
+        "Built a system that converts design mockups into production-ready code. Combines CV, RL, and agent-based reasoning to explore code variants and evaluate them via a custom similarity metric. Leveraged NVIDIA H100s on CoreWeave to cut rendering time from 20 -> 5 minutes, outperforming v0 and bolt by 5% in visual similarity.",
+      image: "/codeshot.png",
+      githubLink: "#",
+      tags: ["Python", "OpenCV", "PyTorch", "LangChain", "React", "FastAPI", "Docker"],
+      date: "Feb 2025 - April 2025",
+      award: "2nd Place Overall at Inference-Time Compute Hackathon",
+      additionalLinks: [
+        {
+          text: "X Post",
+          url: "https://x.com/cognition_labs/status/1896737373872103692",
+          icon: <Twitter className="h-4 w-4" />,
+        },
+      ],
+      youtubeLink: "https://www.youtube.com/watch?v=ib1SBuyamSY",
+    },
     {
       title: "QuRE: Query Routing Engine",
       description:

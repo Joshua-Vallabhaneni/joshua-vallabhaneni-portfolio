@@ -15,7 +15,10 @@ export default function AnimatedSectionHeader({ title }: AnimatedSectionHeaderPr
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      {title}
+      <span className="inline-block relative">
+        {title}
+        <span className="absolute -bottom-1 left-0 right-0 h-1 bg-purple-500 dark:bg-purple-400 transform skew-x-12"></span>
+      </span>
     </motion.h2>
   )
 }

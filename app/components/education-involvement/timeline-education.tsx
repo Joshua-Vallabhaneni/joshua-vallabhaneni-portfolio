@@ -7,7 +7,8 @@ import { Badge } from "@/components/ui/badge"
 import InvolvementCards from "@/app/components/education-involvement/involvement-cards"
 
 export default function TimelineEducation() {
-  const [expandedSection, setExpandedSection] = useState<string | null>("coursework")
+  // Always keep involvement section open
+  const [expandedSection, setExpandedSection] = useState<string | null>("involvement")
 
   const toggleSection = (section: string) => {
     setExpandedSection(expandedSection === section ? null : section)
@@ -74,6 +75,42 @@ export default function TimelineEducation() {
 
             {/* Collapsible sections */}
             <div className="space-y-4">
+              {/* Involvement section */}
+              <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
+                {/* Button for toggling section */}
+                <button
+                  onClick={() => toggleSection("involvement")}
+                  className="flex items-center justify-between w-full text-left"
+                >
+                  <div className="flex items-center">
+                    <Briefcase className="w-5 h-5 text-blue-500 mr-2" />
+                    <h4 className="text-lg font-semibold text-slate-900 dark:text-white">Involvement</h4>
+                  </div>
+                  {expandedSection === "involvement" ? (
+                    <ChevronUp className="w-5 h-5 text-slate-500" />
+                  ) : (
+                    <ChevronDown className="w-5 h-5 text-slate-500" />
+                  )}
+                </button>
+                
+                {/* Collapsible content */}
+                <AnimatePresence initial={false}>
+                  {expandedSection === "involvement" && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-3">
+                        <InvolvementCards />
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+              
               {/* Achievements section */}
               <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
                 <button
@@ -172,39 +209,7 @@ export default function TimelineEducation() {
                 </AnimatePresence>
               </div>
 
-              {/* Involvement section */}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
-                <button
-                  onClick={() => toggleSection("involvement")}
-                  className="flex items-center justify-between w-full text-left"
-                >
-                  <div className="flex items-center">
-                    <Briefcase className="w-5 h-5 text-blue-500 mr-2" />
-                    <h4 className="text-lg font-semibold text-slate-900 dark:text-white">Involvement</h4>
-                  </div>
-                  {expandedSection === "involvement" ? (
-                    <ChevronUp className="w-5 h-5 text-slate-500" />
-                  ) : (
-                    <ChevronDown className="w-5 h-5 text-slate-500" />
-                  )}
-                </button>
 
-                <AnimatePresence>
-                  {expandedSection === "involvement" && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-3">
-                        <InvolvementCards />
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
             </div>
           </div>
         </motion.div>

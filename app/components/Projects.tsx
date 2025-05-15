@@ -1,9 +1,10 @@
 "use client"
 
 import type React from "react"
+import { useState, useRef, useEffect } from "react"
 
 import { motion } from "framer-motion"
-import { Github, Youtube, FileText, Newspaper, Twitter } from "lucide-react"
+import { Github, Youtube, FileText, Newspaper, Twitter, ChevronDown, ChevronUp } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
@@ -19,6 +20,7 @@ interface ProjectCardProps {
   award?: string | string[]
   additionalLinks?: Array<{ text: string; url: string; icon: React.ReactNode }>
   newsLinks?: Array<{ text: string; url: string }>
+  id: string // Added unique ID for each project
 }
 
 function ProjectCard({
@@ -32,97 +34,168 @@ function ProjectCard({
   award,
   additionalLinks,
   newsLinks,
+  id, // Added ID parameter
 }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Handle click outside to close the expanded card
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node) && isExpanded) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isExpanded]);
+
+  // Prevent body scrolling when modal is open
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isExpanded]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
-    >
-      <div className="relative aspect-video">
-        <Image
-          src={image || "/placeholder.svg"}
-          alt={title}
-          fill
-          className="object-cover transition-transform hover:scale-105"
-        />
-      </div>
-      <div className="p-6">
-        <h3 className="font-semibold text-xl mb-2 text-gray-800 dark:text-white">{title}</h3>
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{date}</p>
-        <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{description}</p>
-        {award &&
-          (Array.isArray(award) ? (
-            award.map((a, index) => (
-              <p key={index} className="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-1">
-                🏆 {a}
-              </p>
-            ))
-          ) : (
-            <p className="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-4">🏆 {award}</p>
-          ))}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300"
-            >
-              {tag}
-            </span>
-          ))}
+    <div className="relative" ref={cardRef}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full cursor-pointer"
+        onClick={() => setIsExpanded(true)}
+      >
+        <div className="relative aspect-video">
+          <Image
+            src={image || "/placeholder.svg"}
+            alt={title}
+            fill
+            className="object-cover transition-transform hover:scale-105"
+          />
         </div>
-        <div className="flex flex-wrap gap-4">
-          {githubLink !== "#" && (
-            <Link
-              href={githubLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              <Github className="h-4 w-4" />
-              GitHub
-            </Link>
-          )}
-          {youtubeLink && (
-            <Link
-              href={youtubeLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-red-600 dark:text-red-400 hover:underline"
-            >
-              <Youtube className="h-4 w-4" />
-              Demo
-            </Link>
-          )}
-          {additionalLinks?.map((link, index) => (
-            <Link
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-purple-600 dark:text-purple-400 hover:underline"
-            >
-              {link.icon}
-              {link.text}
-            </Link>
-          ))}
-          {newsLinks?.map((link, index) => (
-            <Link
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-green-600 dark:text-green-400 hover:underline"
-            >
-              <Newspaper className="h-4 w-4" />
-              {link.text}
-            </Link>
-          ))}
+        <div className="p-6">
+          <div className="flex justify-between items-center">
+            <h3 className="font-semibold text-xl text-gray-800 dark:text-white">{title}</h3>
+            <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+          </div>
         </div>
-      </div>
-    </motion.div>
+      </motion.div>
+
+      {/* Modal/Dialog for expanded content */}
+      {isExpanded && (
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsExpanded(false)} />
+          <div className="fixed inset-x-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto z-50 bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 animate-fadeIn">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{title}</h2>
+              <button 
+                onClick={() => setIsExpanded(false)}
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Close details"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="relative aspect-video mb-4">
+              <Image
+                src={image || "/placeholder.svg"}
+                alt={title}
+                fill
+                className="object-cover rounded-lg"
+              />
+            </div>
+            
+            <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{date}</p>
+            <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
+            
+            {award &&
+              (Array.isArray(award) ? (
+                award.map((a, index) => (
+                  <p key={index} className="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-1">
+                    🏆 {a}
+                  </p>
+                ))
+              ) : (
+                <p className="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-4">🏆 {award}</p>
+              ))}
+            
+            <div className="flex flex-wrap gap-2 mb-6">
+              {tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+            
+            <div className="flex flex-wrap gap-4">
+              {githubLink !== "#" && (
+                <Link
+                  href={githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  <Github className="h-4 w-4" />
+                  GitHub
+                </Link>
+              )}
+              {youtubeLink && (
+                <Link
+                  href={youtubeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-red-600 dark:text-red-400 hover:underline"
+                >
+                  <Youtube className="h-4 w-4" />
+                  Demo
+                </Link>
+              )}
+              {additionalLinks?.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-purple-600 dark:text-purple-400 hover:underline"
+                >
+                  {link.icon}
+                  {link.text}
+                </Link>
+              ))}
+              {newsLinks?.map((link, index) => (
+                <Link
+                  key={index}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-green-600 dark:text-green-400 hover:underline"
+                >
+                  <Newspaper className="h-4 w-4" />
+                  {link.text}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+    </div>
   )
 }
 
@@ -145,6 +218,7 @@ export default function Projects() {
         },
       ],
       youtubeLink: "https://www.youtube.com/watch?v=ib1SBuyamSY",
+      id: "codeshot",
     },
     {
       title: "QuRE: Query Routing Engine",
@@ -156,6 +230,7 @@ export default function Projects() {
       tags: ["Python", "JavaScript", "React", "Node.js", "FastAPI", "MongoDB"],
       date: "June 2024 - Present",
       award: "First Place Overall at AI for Change Hackathon",
+      id: "qure",
     },
     {
       title: "FireSync: AI-Powered Disaster Recovery Platform",
@@ -166,6 +241,7 @@ export default function Projects() {
       youtubeLink: "https://www.youtube.com/watch?v=hF7xo23Fj6g",
       tags: ["React", "Node.js", "Express.js", "Storybook", "MongoDB Atlas", "RAG"],
       date: "January 2024",
+      id: "firesync",
     },
     {
       title: "Ignite: ML-Driven Nonprofit Matching Engine",
@@ -177,6 +253,7 @@ export default function Projects() {
       tags: ["Python", "JavaScript", "React", "Flask", "MongoDB"],
       date: "October 2024",
       award: "1st Place Winner at JP Morgan's Code for Good Hackathon",
+      id: "ignite",
     },
     {
       title: "CypressMFA: Gesture-Driven Facial Authentication",
@@ -191,6 +268,7 @@ export default function Projects() {
         "2nd Place Best Privacy/Security Hack",
         "2nd Place Best Use of Computer Vision at PennApps XXV Hackathon",
       ],
+      id: "cypressmfa",
     },
     {
       title: "SkyCast: Flight Delay Predictor",
@@ -200,6 +278,7 @@ export default function Projects() {
       githubLink: "https://github.com/Joshua-Vallabhaneni/SkyCast",
       tags: ["Python", "JavaScript", "React", "Flask", "MySQL"],
       date: "April 2024 - June 2024",
+      id: "skycast",
     },
     {
       title: "Drug Efficacy Analysis and Prediction Tool",
@@ -209,6 +288,7 @@ export default function Projects() {
       githubLink: "https://github.com/Joshua-Vallabhaneni/EfficacyPredictionModel",
       tags: ["Java", "JDBC", "Apache Commons Math", "MySQL"],
       date: "December 2024 - January 2024",
+      id: "drugefficacy",
     },
     {
       title: "Vital Smart: IoT based In-Home Health Monitoring System",
@@ -225,6 +305,7 @@ export default function Projects() {
           icon: <FileText className="h-4 w-4" />,
         },
       ],
+      id: "vitalsmart",
     },
     {
       title: "Clevr - Peer Tutoring Learning Management System",
@@ -234,6 +315,7 @@ export default function Projects() {
       githubLink: "https://github.com/Clevr-LMS",
       tags: ["JavaScript", "Google Apps Script"],
       date: "May 2020 - June 2023",
+      id: "clevr",
     },
     {
       title: "Baby Saver - Hot Car Alert Device",
@@ -253,6 +335,7 @@ export default function Projects() {
           url: "https://www.fox29.com/video/845647",
         },
       ],
+      id: "babysaver",
     },
   ]
 
@@ -263,9 +346,9 @@ export default function Projects() {
     >
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSectionHeader title="Featured Projects" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <ProjectCard key={index} {...project} />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
           ))}
         </div>
       </div>

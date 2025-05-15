@@ -2,8 +2,7 @@
 
 import { useState, useRef } from "react"
 import { motion } from "framer-motion"
-import { Calendar, MapPin, FlaskRoundIcon as Flask, Lightbulb, ChevronRight } from "lucide-react"
-import { Badge } from "@/components/ui/badge"
+import { Calendar, FlaskRoundIcon as Flask, Lightbulb, ChevronRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 export default function InvolvementCards() {

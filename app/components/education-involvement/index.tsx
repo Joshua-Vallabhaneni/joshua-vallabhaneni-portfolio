@@ -3,7 +3,6 @@
 import { useRef } from "react"
 import { motion } from "framer-motion"
 import TimelineEducation from "@/app/components/education-involvement/timeline-education"
-import { cn } from "@/lib/utils"
 
 export default function EducationInvolvement() {
   const containerRef = useRef<HTMLDivElement>(null)

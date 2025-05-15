@@ -4,7 +4,7 @@ import type React from "react"
 import { useState, useRef, useEffect } from "react"
 
 import { motion } from "framer-motion"
-import { Github, Youtube, FileText, Newspaper, Twitter, ChevronDown, ChevronUp } from "lucide-react"
+import { Github, Youtube, FileText, Newspaper, Twitter, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
@@ -34,7 +34,7 @@ function ProjectCard({
   award,
   additionalLinks,
   newsLinks,
-  id, // Added ID parameter
+  id, // Used as key in the parent component
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -67,7 +67,7 @@ function ProjectCard({
   }, [isExpanded]);
 
   return (
-    <div className="relative" ref={cardRef}>
+    <div className="relative" ref={cardRef} id={`project-${id}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

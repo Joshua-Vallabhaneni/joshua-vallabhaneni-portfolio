@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { Code, Layout, Server, Smartphone } from "lucide-react"
-import Image from "next/image"
 
 export default function Services() {
   const services = [

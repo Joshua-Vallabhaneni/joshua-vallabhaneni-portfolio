@@ -108,8 +108,8 @@ function ExperienceCard({
       {/* Modal/Dialog for expanded content */}
       {isExpanded && (
         <>
-          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsExpanded(false)} />
-          <div className="fixed inset-x-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto z-50 bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 animate-fadeIn">
+          <div className="fixed inset-0 bg-black bg-opacity-90 z-[9000]" onClick={() => setIsExpanded(false)} />
+          <div className="fixed inset-x-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto z-[9001] bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 animate-fadeIn">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{company}</h2>
               <button 

@@ -1,0 +1,2 @@
+// For components that might need Image in the future but don't currently use it:
+// import Image from 'next/image' // eslint-disable-line no-unused-vars

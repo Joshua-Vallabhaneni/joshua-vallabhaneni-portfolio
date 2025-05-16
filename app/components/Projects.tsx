@@ -78,7 +78,7 @@ function ProjectCard({
       >
         <div className="relative aspect-video">
           <Image
-            src={image || "/placeholder.svg"}
+            src={image}
             alt={title}
             fill
             className="object-cover transition-transform hover:scale-105"
@@ -112,7 +112,7 @@ function ProjectCard({
             
             <div className="relative aspect-video mb-4">
               <Image
-                src={image || "/placeholder.svg"}
+                src={image}
                 alt={title}
                 fill
                 className="object-cover rounded-lg"
@@ -351,9 +351,6 @@ export default function Projects() {
             <ProjectCard key={project.id} {...project} />
           ))}
         </div>
-      </div>
-      <div className="absolute top-0 right-0 w-64 h-64 -mt-32 -mr-32 opacity-20">
-        <Image src="/placeholder.svg?height=256&width=256" alt="Decorative background" width={256} height={256} />
       </div>
     </section>
   )

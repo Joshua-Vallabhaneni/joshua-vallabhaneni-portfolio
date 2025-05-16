@@ -1,16 +1,181 @@
 "use client"
 
-import { Briefcase, Calendar, MapPin, Globe } from "lucide-react"
+import { Briefcase, Calendar, MapPin, Globe, ChevronDown } from "lucide-react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
+import { useState, useRef, useEffect } from "react"
+
+interface ExperienceCardProps {
+  company: string;
+  location: string;
+  period: string;
+  role: string;
+  logos?: Array<{ src: string; alt: string }>;
+  responsibilities: string[];
+  id: string;
+}
+
+function ExperienceCard({
+  company,
+  location,
+  period,
+  role,
+  logos,
+  responsibilities,
+  id,
+}: ExperienceCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  // Handle click outside to close the expanded card
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (cardRef.current && !cardRef.current.contains(event.target as Node) && isExpanded) {
+        setIsExpanded(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [isExpanded]);
+
+  // Prevent body scrolling when modal is open
+  useEffect(() => {
+    if (isExpanded) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isExpanded]);
+
+  return (
+    <div className="relative" ref={cardRef} id={`experience-${id}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full cursor-pointer w-full"
+        onClick={() => setIsExpanded(true)}
+      >
+        <div className="p-4">
+          <div className="flex justify-between items-center mb-2">
+            <div className="flex-1">
+            <h3 className="font-semibold text-xl text-gray-800 dark:text-white flex items-center">
+              {company === "Freelance" ? <Globe className="w-5 h-5 mr-2 text-blue-500" /> : null}
+              {company}
+              <div className="flex gap-2 items-center ml-2">
+                {logos?.map((logo, logoIndex) => (
+                  <div key={logoIndex} className={`relative ${logo.alt === "CATS2" ? "w-8 h-8" : "w-6 h-6"}`}>
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt}
+                      fill
+                      className="object-contain"
+                      sizes="24px"
+                    />
+                  </div>
+                ))}
+              </div>
+            </h3>
+            </div>
+            <div className="flex items-center justify-center p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+            </div>
+          </div>
+          <p className="text-gray-600 dark:text-gray-300 mb-2 flex items-center text-sm">
+            <MapPin className="w-4 h-4 mr-2" />
+            {location}
+          </p>
+          <p className="text-gray-600 dark:text-gray-300 mb-2 flex items-center text-sm">
+            <Calendar className="w-4 h-4 mr-2" />
+            {period}
+          </p>
+          <p className="text-gray-700 dark:text-gray-200 flex items-center font-medium">
+            <Briefcase className="w-4 h-4 mr-2" />
+            {role}
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Modal/Dialog for expanded content */}
+      {isExpanded && (
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-50 z-40" onClick={() => setIsExpanded(false)} />
+          <div className="fixed inset-x-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto z-50 bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 animate-fadeIn">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{company}</h2>
+              <button 
+                onClick={() => setIsExpanded(false)}
+                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Close details"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center mb-4">
+                <div className="flex gap-2">
+                  {logos?.map((logo, logoIndex) => (
+                    <div key={logoIndex} className={`relative ${logo.alt === "CATS2" ? "w-10 h-10" : "w-8 h-8"}`}>
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        fill
+                        className="object-contain"
+                        sizes="32px"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
+                <MapPin className="w-4 h-4 mr-2" />
+                {location}
+              </p>
+              <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
+                <Calendar className="w-4 h-4 mr-2" />
+                {period}
+              </p>
+              <p className="text-xl font-medium mb-4 dark:text-gray-200 flex items-center">
+                <Briefcase className="w-5 h-5 mr-2" />
+                {role}
+              </p>
+              <div className="mt-4">
+                <h3 className="text-lg font-semibold mb-2 text-gray-800 dark:text-white">Responsibilities</h3>
+                <ul className="list-none space-y-2">
+                  {responsibilities.map((resp, idx) => (
+                    <li key={idx} className="text-gray-700 dark:text-gray-300 flex items-start">
+                      <span className="text-blue-500 mr-2">•</span>
+                      {resp}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
 
 export default function Experience() {
   const experiences = [
     {
       company: "AstraZeneca - Evinova",
       location: "Gaithersburg, MD",
-      period: "May 2024 - Current",
+      period: "May 2024 - May 2025",
       role: "Full-Time Junior Software Engineer",
       logos: [
         {
@@ -22,6 +187,7 @@ export default function Experience() {
           alt: "Evinova",
         },
       ],
+      id: "astrazeneca",
       responsibilities: [
         "Working 40 hr/week as a full-time student at Evinova - a health-tech focused subsidiary within AstraZeneca.",
         "Currently engineering end-to-end frontend for production health analytics platform using Vite, React, & Storybook; developing real-time patient monitoring interface with D3.js and Framer Motion, achieving 40% reduction in clinical visits.",
@@ -40,6 +206,7 @@ export default function Experience() {
           alt: "CATS2",
         },
       ],
+      id: "cats2",
       responsibilities: [
         "Conducted user testing sessions to enhance OWL app usability",
         "Developed feedback questionnaires to gather actionable insights",
@@ -58,6 +225,7 @@ export default function Experience() {
           alt: "Proxzar",
         },
       ],
+      id: "proxzar",
       responsibilities: [
         "Gained proficiency in Proxzar AI/NLP technologies, aiding in boosting text analysis processing speeds by 20%.",
         "Innovated conversational chatbots from complex datasets using React, enhancing user interaction for 250+ clients.",
@@ -75,6 +243,7 @@ export default function Experience() {
           alt: "United Safety",
         },
       ],
+      id: "unitedsafety",
       responsibilities: [
         "Assembled blast-adaptive military seats",
         "Tested for performance issues and optimizations",
@@ -91,62 +260,9 @@ export default function Experience() {
     >
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSectionHeader title="Professional Experience" />
-        <div className="space-y-16">
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl relative overflow-hidden group"
-            >
-              <div
-                className="absolute top-0 right-0 w-32 h-32 bg-blue-200 dark:bg-blue-700 rounded-bl-full z-0 opacity-50 
-                transition-transform duration-300 group-hover:scale-110"
-              ></div>
-              <div className="relative z-10">
-                <div className="flex items-center mb-2">
-                  <h3 className="text-2xl font-semibold dark:text-white flex items-center mr-4">
-                    {exp.company === "Freelance" ? <Globe className="w-6 h-6 mr-2 text-blue-500" /> : null}
-                    {exp.company}
-                  </h3>
-                  <div className="flex gap-2">
-                    {exp.logos?.map((logo, logoIndex) => (
-                      <div key={logoIndex} className={`relative ${logo.alt === "CATS2" ? "w-10 h-10" : "w-8 h-8"}`}>
-                        <Image
-                          src={logo.src || "/placeholder.svg"}
-                          alt={logo.alt}
-                          fill
-                          className="object-contain"
-                          sizes="32px"
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
-                  <MapPin className="w-4 h-4 mr-2" />
-                  {exp.location}
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mb-4 flex items-center">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {exp.period}
-                </p>
-                <p className="text-xl font-medium mb-4 dark:text-gray-200 flex items-center">
-                  <Briefcase className="w-5 h-5 mr-2" />
-                  {exp.role}
-                </p>
-                <ul className="list-none space-y-2">
-                  {exp.responsibilities.map((resp, idx) => (
-                    <li key={idx} className="text-gray-700 dark:text-gray-300 flex items-start">
-                      <span className="text-blue-500 mr-2">•</span>
-                      {resp}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
+        <div className="grid grid-cols-1 gap-8 relative max-w-3xl mx-auto">
+          {experiences.map((exp) => (
+            <ExperienceCard key={exp.id} {...exp} />
           ))}
         </div>
       </div>

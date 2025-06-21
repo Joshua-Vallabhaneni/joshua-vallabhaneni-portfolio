@@ -18,20 +18,20 @@ export default function InvolvementCards() {
       icon: <Flask className="w-full h-full p-3 text-white" />,
       iconBg: "from-blue-500 to-cyan-500",
       description: [
-        "Developing SuperFoldAE, a novel supervised convolutional autoencoder leveraging advanced deep learning techniques to classify protein folds using protein tertiary structure data.",
-        "Conducting comparative analyses of representation learning methods under the guidance of Professor Fardina Alam, utilizing unsupervised regularizers and reconstruction loss to enhance accuracy and model generalization.",
+        "Developing SuperFoldAE, a supervisedconvolutional autoencoder for protein-fold classification under Prof Alam, reaching 93.92% accuracy",
+        "Benchmarking representation learning with unsupervised regularizers and reconstruction loss to boost generalization with 88.13% recall)."
       ],
     },
     {
       position: "Product Innovation Engineer",
       organization: "xFoundry@UMD",
       location: "",
-      period: "Jan 2024 - Present · 1 yr 5 mos",
+      period: "Jan 2024 - Present",
       icon: <Lightbulb className="w-full h-full p-3 text-white" />,
       iconBg: "from-amber-500 to-orange-500",
       skills: ["Entrepreneurship", "Product Development", "AI Systems", "Real-time Detection"],
       description: [
-        "1 of 30 students selected to join the inaugural cohort of xFoundry: a 15-month unique and interactive program that combines elements of entrepreneurship and product development to launch a new venture backed by $250K to $2M in funding.",
+        "1 of 30 students selected to join a 15-month program to launch a solution backed by $250K to $2M in funding.",
         "Developing an AI-enabled detection, tracking, and notification system capable of identifying active shooter events in K-12 schools and colleges in real-time.",
       ],
     },
@@ -53,7 +53,7 @@ export default function InvolvementCards() {
           onHoverStart={() => handleCardHover(index)}
           onHoverEnd={() => handleCardHover(null)}
           className={cn(
-            "group relative bg-white dark:bg-slate-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300",
+            "group relative modern-card glass-effect overflow-hidden transition-all duration-300",
             activeCard === index ? "shadow-2xl scale-[1.02] z-10" : "hover:shadow-xl hover:-translate-y-1",
           )}
         >
@@ -62,13 +62,13 @@ export default function InvolvementCards() {
           {/* Card content */}
           <div className="p-6 pt-5">
             <div className="mb-3">
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <h3 className="text-lg font-bold gradient-text mb-1">
                 {item.position}
               </h3>
-              <p className="text-purple-700 dark:text-purple-400 font-medium">{item.organization}</p>
+              <p className="text-primary font-medium">{item.organization}</p>
             </div>
 
-            <div className="flex flex-wrap items-center text-sm text-slate-600 dark:text-slate-300 mb-4 gap-3">
+            <div className="flex flex-wrap items-center text-sm text-muted-foreground mb-4 gap-3">
               <div className="flex items-center">
                 <Calendar className="w-3.5 h-3.5 mr-1 text-slate-500" />
                 {item.period}
@@ -77,7 +77,7 @@ export default function InvolvementCards() {
             </div>
 
             {/* Description */}
-            <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
+            <ul className="space-y-2 text-sm text-muted-foreground">
               {item.description.map((desc, idx) => (
                 <li key={idx} className="flex">
                   <ChevronRight className="w-4 h-4 text-purple-500 dark:text-purple-400 shrink-0 mt-0.5 mr-2" />

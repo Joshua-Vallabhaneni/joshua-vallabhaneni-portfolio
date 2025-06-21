@@ -2,9 +2,10 @@
 
 import type React from "react"
 import { useState, useRef, useEffect } from "react"
+import { createPortal } from "react-dom"
 
 import { motion } from "framer-motion"
-import { Github, Youtube, FileText, Newspaper, Twitter, ChevronDown } from "lucide-react"
+import { Github, Youtube, FileText, Newspaper, Twitter, ChevronDown, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
@@ -67,134 +68,200 @@ function ProjectCard({
   }, [isExpanded]);
 
   return (
-    <div className="relative" ref={cardRef} id={`project-${id}`}>
+    <div className="relative group" ref={cardRef} id={`project-${id}`}>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full cursor-pointer"
+        className="modern-card hover:shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 h-full cursor-pointer overflow-hidden"
         onClick={() => setIsExpanded(true)}
+        whileHover={{ y: -5 }}
       >
-        <div className="relative aspect-video">
+        <div className="relative aspect-video overflow-hidden">
           <Image
             src={image}
             alt={title}
             fill
-            className="object-cover transition-transform hover:scale-105"
+            className="object-cover transition-transform duration-700 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          
+          {/* Hover overlay */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="modern-button-primary px-4 py-2 text-sm rounded-lg">
+              <ExternalLink className="w-4 h-4 mr-2" />
+              View Details
+            </div>
+          </div>
         </div>
+        
         <div className="p-6">
-          <div className="flex justify-between items-center">
-            <h3 className="font-semibold text-xl text-gray-800 dark:text-white">{title}</h3>
-            <ChevronDown className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+          <div className="flex items-start justify-between mb-3">
+            <h3 className="font-semibold text-xl text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
+              {title}
+            </h3>
+            <ChevronDown className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300 flex-shrink-0 ml-2" />
+          </div>
+          
+          <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
+            {description}
+          </p>
+          
+          <div className="text-xs text-muted-foreground mb-4">
+            {date}
+          </div>
+          
+          {/* Tags */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
+              >
+                {tag}
+              </span>
+            ))}
+            {tags.length > 3 && (
+              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
+                +{tags.length - 3} more
+              </span>
+            )}
           </div>
         </div>
       </motion.div>
 
-      {/* Modal/Dialog for expanded content */}
-      {isExpanded && (
-        <>
-          <div className="fixed inset-0 bg-black bg-opacity-90 z-[9000]" onClick={() => setIsExpanded(false)} />
-          <div className="fixed inset-x-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-3xl max-h-[90vh] overflow-y-auto z-[9001] bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-6 animate-fadeIn">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-2xl font-bold text-gray-800 dark:text-white">{title}</h2>
-              <button 
-                onClick={() => setIsExpanded(false)}
-                className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
-                aria-label="Close details"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-500 dark:text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
+      {/* Modal/Dialog for expanded content rendered via portal */}
+      {isExpanded &&
+        typeof window !== "undefined" &&
+        createPortal(
+          <>
+            <div className="modal-backdrop bg-black/80 backdrop-blur-sm" onClick={() => setIsExpanded(false)} />
+            <div className="modal-content inset-x-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] overflow-y-auto modern-card animate-fadeIn">
+              <div className="p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h2 className="text-3xl font-bold gradient-text">{title}</h2>
+                  <button 
+                    onClick={() => setIsExpanded(false)}
+                    className="modern-button-ghost p-2 rounded-xl"
+                    aria-label="Close details"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+                
+                <div className="relative aspect-video mb-6 rounded-xl overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                
+                <div className="grid md:grid-cols-3 gap-6 mb-6">
+                  <div className="md:col-span-2">
+                    <p className="text-muted-foreground mb-4 leading-relaxed">
+                      {description}
+                    </p>
+                    {award && (
+                      <div className="mb-4">
+                        {Array.isArray(award) ? (
+                          award.map((a, index) => (
+                            <div key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-medium mb-2 mr-2">
+                              <span>🏆</span>
+                              <span>{a}</span>
+                            </div>
+                          ))
+                        ) : (
+                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-medium">
+                            <span>🏆</span>
+                            <span>{award}</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <div>
+                    <div className="modern-card p-4">
+                      <h3 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">Project Info</h3>
+                      <div className="space-y-3 text-sm">
+                        <div>
+                          <span className="text-muted-foreground">Date:</span>
+                          <span className="ml-2 font-medium">{date}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                
+                <div className="flex flex-wrap gap-3">
+                  {githubLink !== "#" && (
+                    <Link
+                      href={githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="modern-button-secondary px-4 py-2 rounded-lg"
+                    >
+                      <Github className="h-4 w-4 mr-2" />
+                      GitHub
+                    </Link>
+                  )}
+                  {youtubeLink && (
+                    <Link
+                      href={youtubeLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="modern-button-primary px-4 py-2 rounded-lg"
+                    >
+                      <Youtube className="h-4 w-4 mr-2" />
+                      Demo
+                    </Link>
+                  )}
+                  {additionalLinks?.map((link, index) => (
+                    <Link
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="modern-button-ghost px-4 py-2 rounded-lg border border-border"
+                    >
+                      {link.icon}
+                      <span className="ml-2">{link.text}</span>
+                    </Link>
+                  ))}
+                  {newsLinks?.map((link, index) => (
+                    <Link
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="modern-button-ghost px-4 py-2 rounded-lg border border-border"
+                    >
+                      <Newspaper className="h-4 w-4 mr-2" />
+                      {link.text}
+                    </Link>
+                  ))}
+                </div>
+              </div>
             </div>
-            
-            <div className="relative aspect-video mb-4">
-              <Image
-                src={image}
-                alt={title}
-                fill
-                className="object-cover rounded-lg"
-              />
-            </div>
-            
-            <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{date}</p>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">{description}</p>
-            
-            {award &&
-              (Array.isArray(award) ? (
-                award.map((a, index) => (
-                  <p key={index} className="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-1">
-                    🏆 {a}
-                  </p>
-                ))
-              ) : (
-                <p className="text-sm font-semibold text-yellow-600 dark:text-yellow-400 mb-4">🏆 {award}</p>
-              ))}
-            
-            <div className="flex flex-wrap gap-2 mb-6">
-              {tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center rounded-md bg-blue-100 dark:bg-blue-900 px-2 py-1 text-xs font-medium text-blue-700 dark:text-blue-300"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-            
-            <div className="flex flex-wrap gap-4">
-              {githubLink !== "#" && (
-                <Link
-                  href={githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-blue-600 dark:text-blue-400 hover:underline"
-                >
-                  <Github className="h-4 w-4" />
-                  GitHub
-                </Link>
-              )}
-              {youtubeLink && (
-                <Link
-                  href={youtubeLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-red-600 dark:text-red-400 hover:underline"
-                >
-                  <Youtube className="h-4 w-4" />
-                  Demo
-                </Link>
-              )}
-              {additionalLinks?.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-purple-600 dark:text-purple-400 hover:underline"
-                >
-                  {link.icon}
-                  {link.text}
-                </Link>
-              ))}
-              {newsLinks?.map((link, index) => (
-                <Link
-                  key={index}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-green-600 dark:text-green-400 hover:underline"
-                >
-                  <Newspaper className="h-4 w-4" />
-                  {link.text}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </>
-      )}
+          </>,
+          document.body
+        )}
     </div>
   )
 }
@@ -342,8 +409,16 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-20 bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-gray-900 dark:to-purple-900 transition-colors duration-300 overflow-hidden relative"
+      className="py-24 bg-background relative overflow-hidden"
     >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+      </div>
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-emerald-500/5" />
+      
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSectionHeader title="Featured Projects" />
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">

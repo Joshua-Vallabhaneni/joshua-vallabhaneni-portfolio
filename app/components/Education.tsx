@@ -12,7 +12,7 @@ export default function Education() {
       period: "2023 – 2026",
       major: "Computer Science (ML Track), Data Science",
       achievements: [
-        "Dean's List (Fall 2023, Spring 2024, Fall 2024)",
+        "Dean's List (All Semesters)",
         "President's Scholarship",
         "OMSE Academic Excellence",
       ],

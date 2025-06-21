@@ -3,6 +3,7 @@
 import { useRef } from "react"
 import { motion } from "framer-motion"
 import TimelineEducation from "@/app/components/education-involvement/timeline-education"
+import AnimatedSectionHeader from "../AnimatedSectionHeader"
 
 export default function EducationInvolvement() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -10,34 +11,32 @@ export default function EducationInvolvement() {
   return (
     <section
       ref={containerRef}
-      className="relative py-16 overflow-hidden bg-gradient-to-br from-slate-50 to-indigo-50 dark:from-slate-900 dark:to-indigo-950"
+      id="education"
+      className="py-24 bg-background relative overflow-hidden"
     >
-      {/* Background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-200 dark:bg-purple-900/20 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-200 dark:bg-indigo-900/20 rounded-full blur-3xl opacity-30"></div>
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl mb-2">
-            <span className="inline-block relative">
-              Education & Involvement
-              <span className="absolute -bottom-1 left-0 right-0 h-1 bg-purple-500 dark:bg-purple-400 transform skew-x-12"></span>
-            </span>
-          </h2>
-        </motion.div>
+      {/* Floating Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 left-1/4 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl animate-float" style={{ animationDelay: '1s' }} />
+      </div>
 
-        {/* Content Area */}
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5" />
+
+      <div className="container relative z-10 mx-auto px-6">
+        <AnimatedSectionHeader 
+          title="Education & Involvement" 
+        />
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
           <TimelineEducation />

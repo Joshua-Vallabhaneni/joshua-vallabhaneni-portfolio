@@ -20,7 +20,7 @@ export default function TimelineEducation() {
     period: "2023 – 2026",
     major: "Computer Science (ML Track), Data Science",
     achievements: [
-      "Dean's List (Fall 2023, Spring 2024, Fall 2024)",
+      "Dean's List (All Semesters)",
       "President's Scholarship",
       "OMSE Academic Excellence",
     ],
@@ -46,13 +46,13 @@ export default function TimelineEducation() {
           transition={{ duration: 0.5 }}
           className="relative mb-8"
         >
-          <div className="bg-white dark:bg-slate-800 rounded-xl shadow-xl p-6 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-1">
+          <div className="modern-card glass-effect p-6 transition-all duration-300 hover:shadow-primary/20">
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold text-slate-900 dark:text-white">{education.degree}</h3>
-                <p className="text-lg text-purple-700 dark:text-purple-400 font-medium">{education.institution}</p>
+                <h3 className="text-xl md:text-2xl font-bold gradient-text">{education.degree}</h3>
+                <p className="text-lg text-primary font-medium">{education.institution}</p>
               </div>
-              <div className="flex items-center text-slate-600 dark:text-slate-300 text-sm font-medium bg-slate-100 dark:bg-slate-700 px-3 py-1 rounded-full">
+              <div className="flex items-center text-primary text-sm font-medium bg-primary/10 px-3 py-1 rounded-full">
                 <Calendar className="w-4 h-4 mr-2" />
                 {education.period}
               </div>
@@ -76,7 +76,7 @@ export default function TimelineEducation() {
             {/* Collapsible sections */}
             <div className="space-y-4">
               {/* Involvement section */}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
+              <div className="border-t border-border/50 pt-4">
                 {/* Button for toggling section */}
                 <button
                   onClick={() => toggleSection("involvement")}
@@ -112,7 +112,7 @@ export default function TimelineEducation() {
               </div>
               
               {/* Achievements section */}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
+              <div className="border-t border-border/50 pt-4">
                 <button
                   onClick={() => toggleSection("achievements")}
                   className="flex items-center justify-between w-full text-left"
@@ -141,7 +141,7 @@ export default function TimelineEducation() {
                         <ul className="space-y-2">
                           {education.achievements.map((achievement, idx) => (
                             <li key={idx} className="text-slate-700 dark:text-slate-300 flex items-start">
-                              <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500 mt-2 mr-2"></span>
+                              <span className="inline-block w-1.5 h-1.5 rounded-full bg-gradient-to-tr from-primary to-blue-500 mt-2 mr-2"></span>
                               {achievement}
                             </li>
                           ))}
@@ -153,7 +153,7 @@ export default function TimelineEducation() {
               </div>
 
               {/* Coursework section */}
-              <div className="border-t border-slate-200 dark:border-slate-700 pt-4">
+              <div className="border-t border-border/50 pt-4">
                 <button
                   onClick={() => toggleSection("coursework")}
                   className="flex items-center justify-between w-full text-left"

@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Code, Database, Server, Terminal, Layers, Cpu, Brain, Zap } from "lucide-react"
+import { Code, Database, Server, Terminal, Layers, Brain } from "lucide-react"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"
 import React from "react" 
 

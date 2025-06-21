@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Mail, MapPin, Send, Loader2, Phone, MessageCircle } from "lucide-react"
+import { Mail, MapPin, Send, Loader2 } from "lucide-react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import * as z from "zod"
@@ -199,7 +199,7 @@ export default function Contact() {
                       ? "border-red-500 focus:border-red-500 focus:ring-red-500/20" 
                       : "border-border focus:border-primary focus:ring-primary/20"
                   } focus:outline-none focus:ring-4`}
-                  placeholder="What's this about?"
+                                      placeholder="What's this about?"
                 />
                 {errors.subject && <p className="mt-2 text-sm text-red-500">{errors.subject.message}</p>}
               </div>

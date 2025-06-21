@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
-import { Home, User, Briefcase, Code, GraduationCap, Mail, FolderOpen } from "lucide-react"
+import { Home, Briefcase, Code, GraduationCap, Mail, FolderOpen } from "lucide-react"
 
 const sections = [
   { id: "hero", label: "Home", icon: Home },

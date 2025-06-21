@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image"
-import { GitlabIcon as GitHub, Linkedin, Mail, ArrowDown, Sparkles } from "lucide-react"
+import { GitlabIcon as GitHub, Linkedin, Mail, ArrowDown } from "lucide-react"
 import { motion } from "framer-motion"
 
 const GridPattern = () => (

@@ -12,8 +12,8 @@ export default function Education() {
       period: "2023 – 2026",
       major: "Computer Science (ML Track), Data Science",
       achievements: [
-        "Dean's List (All Semesters)",
-        "President's Scholarship",
+              "Dean's List (All Semesters)",
+      "President's Scholarship",
         "OMSE Academic Excellence",
       ],
       currentCoursework: ["Advanced Data Structures, Intro to Data Science, Applications of R for Data Science"],

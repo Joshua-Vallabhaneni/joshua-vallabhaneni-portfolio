@@ -39,21 +39,25 @@ function ProjectCard({
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  // Handle click outside to close the expanded card
-  const cardRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (cardRef.current && !cardRef.current.contains(event.target as Node) && isExpanded) {
-        setIsExpanded(false);
-      }
-    };
+  // Refs for the collapsed card **and** the modal content
+  const cardRef = useRef<HTMLDivElement>(null)
+  const modalRef = useRef<HTMLDivElement>(null)
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isExpanded]);
+  // Handle outside-clicks **only when** the modal is open. We use the
+  // modalRef to ensure clicks inside the expanded view don't immediately
+  // close it.
+  useEffect(() => {
+    if (!isExpanded) return
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
+        setIsExpanded(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside)
+    return () => document.removeEventListener("mousedown", handleClickOutside)
+  }, [isExpanded])
 
   // Prevent body scrolling when modal is open
   useEffect(() => {
@@ -137,7 +141,10 @@ function ProjectCard({
         createPortal(
           <>
             <div className="modal-backdrop bg-black/80 backdrop-blur-sm" onClick={() => setIsExpanded(false)} />
-            <div className="modal-content inset-x-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] overflow-y-auto modern-card animate-fadeIn">
+            <div
+              ref={modalRef}
+              className="modal-content inset-x-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] overflow-y-auto modern-card animate-fadeIn"
+            >
               <div className="p-8">
                 <div className="flex justify-between items-center mb-6">
                   <h2 className="text-3xl font-bold gradient-text">{title}</h2>
@@ -226,7 +233,7 @@ function ProjectCard({
                       href={youtubeLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="modern-button-primary px-4 py-2 rounded-lg"
+                      className="modern-button-ghost px-4 py-2 rounded-lg border border-border"
                     >
                       <Youtube className="h-4 w-4 mr-2" />
                       Demo
@@ -298,6 +305,13 @@ export default function Projects() {
       date: "June 2024 - Present",
       award: "First Place Overall at AI for Change Hackathon",
       id: "qure",
+      additionalLinks: [
+        {
+          text: "Website",
+          url: "https://www.qure.dev/",
+          icon: <ExternalLink className="h-4 w-4" />,
+        },
+      ],
     },
     {
       title: "FireSync: AI-Powered Disaster Recovery Platform",

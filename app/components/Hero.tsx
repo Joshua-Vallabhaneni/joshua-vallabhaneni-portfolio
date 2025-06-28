@@ -76,7 +76,7 @@ export default function Hero() {
               </h2>
               
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                Hi! I'm Joshua - an investor, analyst and genuine learner studying CS + Data Science at UMD, College Park. In my free time, you'll probably find me watching a show, cooking something new, or working out! 
+                Hi! I'm Joshua - an inventor, analyst and learner studying CS + Data Science at UMD, College Park. In my free time, you'll probably find me watching a show, cooking something new, or working out! 
               </p>
               
               {/* Social Links */}

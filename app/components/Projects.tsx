@@ -276,6 +276,34 @@ function ProjectCard({
 export default function Projects() {
   const projects = [
     {
+      title: "SwitchConfigSim: Network Switch Management Interface",
+      description:
+        "Built a comprehensive network switch management interface that mirrors enterprise-grade infrastructure patterns. The system provides dual interfaces (CLI and REST API) that both execute identical backend automation scripts, enabling hands-on experience with network device management workflows.",
+      image: "/switchconfig.png", 
+      githubLink: "https://github.com/Joshua-Vallabhaneni/SwitchConfigSim",
+      youtubeLink: "https://youtu.be/GsN7T22HNzc",
+      tags: ["Go", "Shell Scripting", "REST APIs", "OpenAPI", "Linux GNU Tools", "Makefile"],
+      date: "June 2025 - July 2025",
+      id: "switchconfigsim",
+    },
+    {
+      title: "EcoQuery: Digital Carbon Footprint Extension",
+      description:
+        "Built a chrome extension that empowers users to make environmentally conscious decisions about their digital queries. The system intercepts ChatGPT queries in real-time, analyzes environmental impact using research-backed calculations, and provides instant comparisons with Google Search alternatives, enabling informed choices about digital carbon footprint.",
+      image: "/ecoquery.png",
+      githubLink: "https://github.com/Joshua-Vallabhaneni/Eco-Query-Extension",
+      tags: ["Chrome Extension", "JavaScript (Vanilla)", "HTML/CSS"],
+      date: "November 2024 - June 2025",
+      additionalLinks: [
+        {
+          text: "Chrome Store",
+          url: "https://chromewebstore.google.com/detail/mcbcdggkligdjpcdpijnmiknbhmcefjl?utm_source=item-share-cb",
+          icon: <ExternalLink className="h-4 w-4" />,
+        },
+      ],
+      id: "ecoquery",
+    },
+    {
       title: "CodeShot: Pixel-Perfect AI Frontend Engineer",
       description:
         "Built a system that converts design mockups into production-ready code. Combines CV, RL, and agent-based reasoning to explore code variants and evaluate them via a custom similarity metric. Leveraged NVIDIA H100s on CoreWeave to cut rendering time from 20 -> 5 minutes, outperforming v0 and bolt by 5% in visual similarity.",

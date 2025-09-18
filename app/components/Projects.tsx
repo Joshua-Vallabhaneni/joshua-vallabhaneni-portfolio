@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from "react"
 import { createPortal } from "react-dom"
 
 import { motion } from "framer-motion"
-import { Github, Youtube, FileText, Newspaper, Twitter, ChevronDown, ExternalLink } from "lucide-react"
+import { Github, Youtube, FileText, Newspaper, Twitter, ExternalLink } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import AnimatedSectionHeader from "./AnimatedSectionHeader"

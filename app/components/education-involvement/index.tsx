@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { GraduationCap, Calendar, Award, Book, Briefcase, Trophy, ChevronRight, ExternalLink } from "lucide-react"
+import { GraduationCap, Calendar, Book, Trophy, ChevronRight, ExternalLink } from "lucide-react"
 import AnimatedSectionHeader from "../AnimatedSectionHeader"
 import Link from "next/link"
 

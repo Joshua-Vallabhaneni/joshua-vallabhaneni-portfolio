@@ -78,7 +78,7 @@ function ProjectCard({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="modern-card hover:shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 h-full cursor-pointer overflow-hidden"
+        className="modern-card hover:shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 cursor-pointer overflow-hidden h-full flex flex-col"
         onClick={() => setIsExpanded(true)}
         whileHover={{ y: -5 }}
       >
@@ -100,38 +100,25 @@ function ProjectCard({
           </div>
         </div>
         
-        <div className="p-6">
-          <div className="flex items-start justify-between mb-3">
-            <h3 className="font-semibold text-xl text-foreground group-hover:text-primary transition-colors duration-300 line-clamp-2">
-              {title}
-            </h3>
-            <ChevronDown className="h-5 w-5 text-muted-foreground group-hover:text-primary transition-colors duration-300 flex-shrink-0 ml-2" />
+        <div className="p-4 relative flex-1 flex flex-col justify-between">
+          <div>
+            <div className="mb-2">
+              <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
+                {title}
+              </h3>
+            </div>
+            
+            <div className="text-xs text-muted-foreground">
+              {date}
+            </div>
           </div>
           
-          <p className="text-sm text-muted-foreground mb-3 line-clamp-2">
-            {description}
-          </p>
-          
-          <div className="text-xs text-muted-foreground mb-4">
-            {date}
-          </div>
-          
-          {/* Tags */}
-          <div className="flex flex-wrap gap-1.5 mb-4">
-            {tags.slice(0, 3).map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20"
-              >
-                {tag}
-              </span>
-            ))}
-            {tags.length > 3 && (
-              <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-muted text-muted-foreground">
-                +{tags.length - 3} more
-              </span>
-            )}
-          </div>
+          {/* Award badge */}
+          {award && (
+            <div className="absolute bottom-2 right-2 w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center">
+              <span className="text-amber-600 dark:text-amber-400 text-sm">🏆</span>
+            </div>
+          )}
         </div>
       </motion.div>
 
@@ -275,6 +262,16 @@ function ProjectCard({
 
 export default function Projects() {
   const projects = [
+    {
+      title: "EduPlanner: LLM-Powered Career Scheduling Engine",
+      description:
+        "Building an AI-powered career scheduling engine that creates personalized four-year academic roadmaps for over 1,300 students. The system intelligently connects coursework with extracurricular activities across different career paths and suggests alternatives when students need to adjust their plans. It makes academic planning much easier by giving students smart, data-driven recommendations to help them make the most of their education and prepare for their careers.",
+      image: "/eduplanner.png",
+      githubLink: "#",
+      tags: ["React", "Vite", "PostgreSQL", "OpenRouter"],
+      date: "June 2025 - Present",
+      id: "eduplanner",
+    },
     {
       title: "SwitchConfigSim: Network Switch Management Interface",
       description:
@@ -463,7 +460,7 @@ export default function Projects() {
       
       <div className="container mx-auto px-6 relative z-10">
         <AnimatedSectionHeader title="Featured Projects" />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 relative auto-rows-fr">
           {projects.map((project) => (
             <ProjectCard key={project.id} {...project} />
           ))}

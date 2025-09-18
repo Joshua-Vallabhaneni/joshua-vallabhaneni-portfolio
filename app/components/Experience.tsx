@@ -223,7 +223,9 @@ export default function Experience() {
       ],
       id: "paypal",
       responsibilities: [
-        "Automating CI test workflow through 3 agentic AI workflows for PR creation, removing manual configuration steps.",
+        "Engineered E2E integration pipeline (JGit, Picocli, GPT-4) in PayPal’s CI workflow, automating dev infra setup.",
+        "Deployed GitHub API/Jenkins workflow for PR automation, slashing dev onboarding from 3 days to 5 minutes.",
+        " Implemented RAG pipeline with an AI agent that ingests web pages and sharepoint videos (Graph API + OpenAI Whisper), embeds them in LanceDB, and delivers contextual answers in under 2s via a Next.js/React chatbot."
       ],
     },
     {

@@ -1,46 +1,54 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
+import { motion } from "framer-motion";
 
 interface AnimatedSectionHeaderProps {
-  title: string
-  subtitle?: string
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center";
 }
 
-export default function AnimatedSectionHeader({ title, subtitle }: AnimatedSectionHeaderProps) {
+export default function AnimatedSectionHeader({
+  eyebrow,
+  title,
+  subtitle,
+  align = "left",
+}: AnimatedSectionHeaderProps) {
+  const alignment = align === "center" ? "text-center mx-auto" : "text-left";
   return (
-    <div className="text-center mb-16">
+    <div className={`mb-14 md:mb-20 max-w-3xl ${alignment}`}>
+      {eyebrow && (
+        <motion.p
+          className="eyebrow mb-4"
+          initial={{ opacity: 0, y: 8 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.4 }}
+        >
+          {eyebrow}
+        </motion.p>
+      )}
       <motion.h2
-        className="text-4xl md:text-5xl font-bold mb-4"
-        initial={{ opacity: 0, y: 20 }}
+        className="display text-4xl md:text-6xl lg:text-7xl text-foreground"
+        initial={{ opacity: 0, y: 12 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+        viewport={{ once: true, amount: 0.6 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <span className="gradient-text">{title}</span>
+        {title}
       </motion.h2>
-      
       {subtitle && (
         <motion.p
-          className="text-lg text-muted-foreground max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
+          className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl"
+          initial={{ opacity: 0, y: 8 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           {subtitle}
         </motion.p>
       )}
-      
-      {/* Decorative line */}
-      <motion.div
-        className="w-24 h-1 bg-gradient-to-r from-primary to-emerald-500 mx-auto mt-6 rounded-full"
-        initial={{ width: 0 }}
-        whileInView={{ width: 96 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-      />
     </div>
-  )
+  );
 }
-

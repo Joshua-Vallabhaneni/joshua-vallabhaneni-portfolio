@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { motion } from "framer-motion"
 import { Home, Briefcase, Code, GraduationCap, Mail, FolderOpen } from "lucide-react"
+import { smoothScrollTo } from "./motion/smoothScrollTo"
 
 const sections = [
   { id: "hero", label: "Home", icon: Home },
@@ -48,7 +49,7 @@ export default function FloatingNav() {
           {sections.map(({ id, label, icon: Icon }) => (
             <motion.button
               key={id}
-              onClick={() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" })}
+              onClick={() => smoothScrollTo(id)}
               className="group relative flex items-center justify-center p-3 rounded-xl transition-all duration-300"
               aria-label={`Scroll to ${label}`}
               whileHover={{ scale: 1.1 }}

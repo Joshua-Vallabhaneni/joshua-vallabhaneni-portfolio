@@ -1,0 +1,62 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Joshua Vallabhaneni" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+      - navigation [ref=e5]:
+        - link "Work" [ref=e6] [cursor=pointer]:
+          - /url: "#work"
+        - link "Experience" [ref=e7] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Education" [ref=e8] [cursor=pointer]:
+          - /url: "#education"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Get in touch" [ref=e10] [cursor=pointer]:
+        - /url: mailto:pjvallabhaneni@gmail.com
+  - main [ref=e11]:
+    - article [ref=e12]:
+      - link "Back to work" [ref=e14] [cursor=pointer]:
+        - /url: /#work
+        - img [ref=e15]
+        - text: Back to work
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: 2025 · 1,300+ students using daily
+        - heading "EduPlanner" [level=1] [ref=e19]:
+          - generic "EduPlanner" [ref=e20]:
+            - generic [ref=e22]:
+              - generic [ref=e23]: E
+              - generic [ref=e24]: d
+              - generic [ref=e25]: u
+              - generic [ref=e26]: P
+              - generic [ref=e27]: l
+              - generic [ref=e28]: a
+              - generic [ref=e29]: "n"
+              - generic [ref=e30]: "n"
+              - generic [ref=e31]: e
+              - generic [ref=e32]: r
+        - paragraph [ref=e33]: An AI-powered career scheduling engine that builds personalized four-year academic roadmaps, connecting coursework to extracurricular activities and adapting when students change paths.
+        - generic [ref=e34]:
+          - generic [ref=e35]: React
+          - generic [ref=e36]: Vite
+          - generic [ref=e37]: PostgreSQL
+          - generic [ref=e38]: OpenRouter
+      - generic [ref=e40]:
+        - paragraph [ref=e41]: "Most academic planning tools treat a degree as a checklist. EduPlanner treats it as a graph: courses, prerequisites, career interests, extracurriculars, and required experiences are all nodes, and the planner finds a path through them that satisfies the user's constraints and signals their direction."
+        - paragraph [ref=e42]: Under the hood, the system uses OpenRouter to route prompts to whichever model is cheapest for the planning step at hand — fast cheap models for slot-filling, larger models for the harder reasoning steps. This kept inference cost low enough to support a free tier while the user base grew.
+        - paragraph [ref=e43]: "Over 1,300 students use EduPlanner to manage their plans. The interesting design problem turned out to be the change flow: when a student decides to switch majors or add a research interest in their junior year, the planner has to re-plan against work they have already done without throwing away credits. Most of the engineering time went into making that flow feel calm rather than punishing."
+      - img "EduPlanner interface showing a four-year academic roadmap with courses, extracurriculars, and career-track recommendations." [ref=e46]
+  - contentinfo [ref=e47]:
+    - generic [ref=e48]:
+      - generic [ref=e49]: © 2026 Joshua Vallabhaneni
+      - generic [ref=e50]:
+        - link "GitHub" [ref=e51] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni
+        - link "LinkedIn" [ref=e52] [cursor=pointer]:
+          - /url: https://linkedin.com/in/joshua-vallabhaneni
+        - link "Email" [ref=e53] [cursor=pointer]:
+          - /url: mailto:pjvallabhaneni@gmail.com
+        - button "Toggle theme" [ref=e54] [cursor=pointer]:
+          - img
+          - img [ref=e55]
+  - alert [ref=e57]

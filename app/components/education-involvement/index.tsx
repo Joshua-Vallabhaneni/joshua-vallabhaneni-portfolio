@@ -1,170 +1,157 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { GraduationCap, Calendar, Book, Trophy, ChevronRight, ExternalLink } from "lucide-react"
-import AnimatedSectionHeader from "../AnimatedSectionHeader"
-import Link from "next/link"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowUpRight } from "lucide-react";
+import { useRef } from "react";
+import { StickyScrubHeader } from "../motion/StickyScrubHeader";
+import { SectionProgressHairline } from "../motion/SectionProgressHairline";
 
 export default function EducationInvolvement() {
+  const sectionRef = useRef<HTMLElement>(null);
+
   const education = {
-    degree: "Bachelor's Degree in Computer Science",
-    institution: "University of Maryland - College Park",
-    period: "2023 – 2026",
-    major: "Computer Science (ML Track)",
-    minor: "Data Science",
+    degree: "B.S. Computer Science — ML Track",
+    minor: "Minor in Data Science",
+    institution: "University of Maryland, College Park",
+    period: "2023 — 2027",
     achievements: [
-      "Dean's List (All Semesters)",
-      "President's Scholarship", 
-      "OMSE Academic Excellence"
-    ]
-  }
+      "Dean's List (all semesters)",
+      "President's Scholarship",
+      "OMSE Academic Excellence",
+    ],
+  };
 
   const involvement = [
     {
       position: "Machine Learning Researcher",
       organization: "UMD, Department of Computer Science",
-      period: "April 2025 – Present",
+      period: "Apr 2025 — Present",
       highlights: [
-        "Presenting ConSOLAE at CSBW 2025, a contractive autoencoder framework for protein fold recognition.",
-        "Achieved 96.48% accuracy on SCOP benchmark dataset, surpassing prior fold-classification baselines.",
-        "Benchmarked representation learning with unsupervised regularizers to boost generalization (88.13% recall)."
-      ]
+        "Researching a supervised convolutional autoencoder for protein fold classification under Dr. Fardina Alam.",
+        "CSBW 2025 Best Paper for ConSOLAE, a contractive autoencoder framework for protein fold recognition.",
+      ] as string[],
+      publicationLink: "https://dl.acm.org/doi/10.1145/3768322.3769023",
     },
     {
-      position: "Full Stack Developer", 
-      organization: "xFoundry@UMD",
-      organizationLink: "https://www.linkedin.com/posts/university-of-maryland_congratulations-to-the-umd-student-team-defenx-activity-7373369138905325568-RWY1/",
-      period: "Jan 2024 - Present",
+      position: "Full-Stack Developer",
+      organization: "xFoundry @ UMD",
+      organizationLink:
+        "https://www.linkedin.com/posts/university-of-maryland_congratulations-to-the-umd-student-team-defenx-activity-7373369138905325568-RWY1/",
+      period: "Jan 2024 — Present",
       highlights: [
-        "Received 250k investment for an AI-driven tool to better protect schools from gun violence.",
-      ]
-    }
-  ]
+        "Received $250k investment for an AI-driven tool to better protect schools from gun violence.",
+      ],
+    },
+  ];
 
   return (
-    <section id="education" className="py-24 bg-background relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-      </div>
+    <section
+      ref={sectionRef}
+      id="education"
+      className="relative py-24 md:py-40"
+    >
+      <SectionProgressHairline sectionRef={sectionRef} />
+      <div className="container-editorial">
+        <div className="grid grid-cols-12 gap-x-6 gap-y-12">
+          <div className="col-span-12 md:col-span-4">
+            <StickyScrubHeader
+              eyebrow="Study & research"
+              title="Education."
+              sectionRef={sectionRef}
+            />
+          </div>
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-blue-500/5" />
-
-      <div className="container relative z-10 mx-auto px-6">
-        <AnimatedSectionHeader title="Education & Involvement" />
-
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8">
-            
-            {/* Education Card */}
+          <div className="col-span-12 md:col-span-8 space-y-16">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5 }}
-              className="modern-card p-8 h-fit"
             >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center mr-4">
-                  <GraduationCap className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold gradient-text">{education.degree}</h3>
-                  <p className="text-muted-foreground">{education.institution}</p>
-                </div>
-              </div>
+              <div className="eyebrow mb-4">Degree</div>
+              <h3 className="text-2xl md:text-3xl font-medium leading-tight">
+                {education.degree}
+              </h3>
+              <p className="mt-2 text-muted-foreground">{education.minor}</p>
+              <p className="mt-6 text-base">{education.institution}</p>
+              <p className="mt-1 text-sm text-muted-foreground">{education.period}</p>
 
-              <div className="space-y-4">
-                <div className="flex items-center text-sm text-muted-foreground">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  {education.period}
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20">
-                    <Book className="w-3 h-3 mr-1" />
-                    Major: {education.major}
-                  </span>
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-500/10 text-blue-600 border border-blue-500/20">
-                    <Book className="w-3 h-3 mr-1" />
-                    Minor: {education.minor}
-                  </span>
-                </div>
-
-                <div>
-                  <h4 className="font-semibold text-sm text-muted-foreground mb-2 flex items-center">
-                    <Trophy className="w-4 h-4 mr-1" />
-                    ACHIEVEMENTS
-                  </h4>
-                  <div className="space-y-1">
-                    {education.achievements.map((achievement, idx) => (
-                      <div key={idx} className="flex items-center text-sm">
-                        <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mr-2 flex-shrink-0" />
-                        <span>{achievement}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              <div className="mt-8">
+                <div className="eyebrow mb-3">Honors</div>
+                <ul className="space-y-2">
+                  {education.achievements.map((a) => (
+                    <li key={a} className="flex gap-3 text-sm text-foreground/85">
+                      <span className="mt-2 h-px w-3 flex-shrink-0 bg-border" />
+                      {a}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
 
-            {/* Involvement Section */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="space-y-6"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
             >
-
-              <div className="space-y-4">
-                {involvement.map((item, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: 0.1 * index }}
-                    className="modern-card p-6 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="mb-3">
-                      <h4 className="font-semibold text-lg mb-1">{item.position}</h4>
-                      {item.organizationLink ? (
-                        <Link 
-                          href={item.organizationLink} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="text-primary font-medium text-sm hover:underline inline-flex items-center group underline decoration-primary/30 hover:decoration-primary/70 transition-all"
-                        >
-                          {item.organization}
-                          <ExternalLink className="w-3 h-3 ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
-                        </Link>
-                      ) : (
-                        <p className="text-primary font-medium text-sm">{item.organization}</p>
-                      )}
-                      <div className="flex items-center text-xs text-muted-foreground mt-1">
-                        <Calendar className="w-3 h-3 mr-1" />
+              <div className="eyebrow mb-4">Involvement</div>
+              <ol className="divide-y divide-border">
+                {involvement.map((item, i) => (
+                  <li key={i} className="py-6 first:pt-0 last:pb-0">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <h4 className="text-lg md:text-xl font-medium">{item.position}</h4>
+                      <span className="text-xs text-muted-foreground whitespace-nowrap">
                         {item.period}
-                      </div>
+                      </span>
                     </div>
+                    {item.organizationLink ? (
+                      <Link
+                        href={item.organizationLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 mt-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                      >
+                        {item.organization}
+                        <ArrowUpRight className="h-3.5 w-3.5" />
+                      </Link>
+                    ) : (
+                      <p className="mt-1 text-sm text-muted-foreground">{item.organization}</p>
+                    )}
 
-                    <div className="space-y-2">
-                      {item.highlights.map((highlight, idx) => (
-                        <div key={idx} className="flex items-start text-sm text-muted-foreground">
-                          <ChevronRight className="w-3 h-3 text-primary mt-0.5 mr-2 flex-shrink-0" />
-                          <span className="leading-relaxed">{highlight}</span>
-                        </div>
+                    <ul className="mt-4 space-y-2">
+                      {item.highlights.map((h, idx) => (
+                        <li
+                          key={idx}
+                          className="flex gap-3 text-sm text-foreground/85 leading-relaxed"
+                        >
+                          <span className="mt-2 h-px w-3 flex-shrink-0 bg-border" />
+                          {h}
+                        </li>
                       ))}
-                    </div>
-                  </motion.div>
+                      {"publicationLink" in item && item.publicationLink && (
+                        <li className="flex gap-3 text-sm leading-relaxed">
+                          <span className="mt-2 h-px w-3 flex-shrink-0 bg-foreground/70" />
+                          <Link
+                            href={item.publicationLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 font-medium text-foreground link-underline"
+                          >
+                            Read the publication
+                            <ArrowUpRight className="h-4 w-4" />
+                          </Link>
+                        </li>
+                      )}
+                    </ul>
+                  </li>
                 ))}
-              </div>
+              </ol>
             </motion.div>
-
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

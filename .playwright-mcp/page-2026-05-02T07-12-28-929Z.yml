@@ -1,0 +1,65 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "Joshua Vallabhaneni" [ref=e4] [cursor=pointer]:
+      - /url: "#hero"
+  - main [ref=e5]:
+    - article [ref=e6]:
+      - link "Back to work" [ref=e8] [cursor=pointer]:
+        - /url: /#work
+        - img [ref=e9]
+        - text: Back to work
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: 2025 · PayPal infrastructure project
+        - heading "SwitchConfigSim" [level=1] [ref=e13]:
+          - generic "SwitchConfigSim" [ref=e14]:
+            - generic [ref=e16]:
+              - generic [ref=e17]: S
+              - generic [ref=e18]: w
+              - generic [ref=e19]: i
+              - generic [ref=e20]: t
+              - generic [ref=e21]: c
+              - generic [ref=e22]: h
+              - generic [ref=e23]: C
+              - generic [ref=e24]: o
+              - generic [ref=e25]: "n"
+              - generic [ref=e26]: f
+              - generic [ref=e27]: i
+              - generic [ref=e28]: g
+              - generic [ref=e29]: S
+              - generic [ref=e30]: i
+              - generic [ref=e31]: m
+        - paragraph [ref=e32]: A network switch management interface that mirrors enterprise-grade infrastructure patterns, with dual interfaces — CLI and REST API — that both execute identical backend automation.
+        - generic [ref=e33]:
+          - generic [ref=e34]: Go
+          - generic [ref=e35]: Shell
+          - generic [ref=e36]: REST APIs
+          - generic [ref=e37]: OpenAPI
+          - generic [ref=e38]: Linux
+          - generic [ref=e39]: Makefile
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: Network engineers and platform teams want different ergonomics for the same job. Engineers want a CLI that reads like the real switch console; platform teams want a REST API they can wire into automation. The hardest part is making sure those two surfaces never drift — that the CLI and the API genuinely run the same backend and produce the same effects.
+        - paragraph [ref=e43]: SwitchConfigSim is structured around a single Go core that exposes both a Cobra-style CLI and a generated OpenAPI server. Every state-changing operation routes through the same automation script, so adding a new command means writing it once and getting both surfaces for free. The OpenAPI spec is the contract; the CLI is generated from the same handlers the API exposes.
+        - paragraph [ref=e44]: "The simulator runs against virtualized switch images on Linux, which means the same workflow that drives the test harness can be pointed at a real device with no code change. That is the part that makes this useful inside a large org: it collapses the gap between a learning environment and a production runbook."
+      - img "SwitchConfigSim CLI and REST API panels side by side, both calling the same Go backend handlers." [ref=e48]
+      - generic [ref=e51]:
+        - generic [ref=e52]: Links
+        - link "GitHub" [ref=e54] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni/SwitchConfigSim
+          - generic [ref=e55]:
+            - img [ref=e56]
+            - text: GitHub
+          - img [ref=e59]
+  - contentinfo [ref=e62]:
+    - generic [ref=e63]:
+      - generic [ref=e64]: © 2026 Joshua Vallabhaneni
+      - generic [ref=e65]:
+        - link "GitHub" [ref=e66] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni
+        - link "LinkedIn" [ref=e67] [cursor=pointer]:
+          - /url: https://linkedin.com/in/joshua-vallabhaneni
+        - link "Email" [ref=e68] [cursor=pointer]:
+          - /url: mailto:pjvallabhaneni@gmail.com
+        - button "Toggle theme" [ref=e69] [cursor=pointer]:
+          - img
+          - img [ref=e70]
+  - alert [ref=e72]

@@ -1,0 +1,17 @@
+Bundle baseline captured 2026-05-02 (pre-motion-pass).
+Next.js 14.2.16, npm run build.
+
+Route                    Size      First Load JS
+/                        231 kB    361 kB
+/_not-found              873 B     88.1 kB
+/education               1.84 kB   132 kB
+
+Shared by all:           87.2 kB
+  117-...js              31.6 kB
+  fd9d1056-...js         53.6 kB
+  other                  1.96 kB
+
+R9 budget interpretation:
+  / target:    First Load JS ≤ 361 + 50 = 411 kB
+  / hard cap:  First Load JS ≤ 361 + 80 = 441 kB
+  /work/[slug] target: First Load JS ≤ 361 + 60 = 421 kB

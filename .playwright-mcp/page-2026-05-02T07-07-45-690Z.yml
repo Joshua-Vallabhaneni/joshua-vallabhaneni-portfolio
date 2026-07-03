@@ -1,0 +1,420 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Joshua Vallabhaneni" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+      - navigation [ref=e5]:
+        - link "Work" [ref=e6] [cursor=pointer]:
+          - /url: "#work"
+        - link "Experience" [ref=e7] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Education" [ref=e8] [cursor=pointer]:
+          - /url: "#education"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Get in touch" [ref=e10] [cursor=pointer]:
+        - /url: mailto:pjvallabhaneni@gmail.com
+  - main [ref=e11]:
+    - generic [ref=e16]:
+      - generic [ref=e17]:
+        - generic [ref=e18]:
+          - paragraph [ref=e19]: Portfolio · 2026
+          - heading "Joshua Vallabhaneni" [level=1] [ref=e21]:
+            - generic "Joshua Vallabhaneni" [ref=e22]:
+              - generic [ref=e23]:
+                - generic [ref=e24]: J
+                - generic [ref=e25]: o
+                - generic [ref=e26]: s
+                - generic [ref=e27]: h
+                - generic [ref=e28]: u
+                - generic [ref=e29]: a
+                - generic [ref=e30]: V
+                - generic [ref=e31]: a
+                - generic [ref=e32]: l
+                - generic [ref=e33]: l
+                - generic [ref=e34]: a
+                - generic [ref=e35]: b
+                - generic [ref=e36]: h
+                - generic [ref=e37]: a
+                - generic [ref=e38]: "n"
+                - generic [ref=e39]: e
+                - generic [ref=e40]: "n"
+                - generic [ref=e41]: i
+                - text: .
+        - generic [ref=e42]:
+          - paragraph [ref=e43]: Full-stack engineer and ML researcher studying CS and Data Science at the University of Maryland. I build end-to-end products, from AI-native infrastructure to quiet, well-made interfaces.
+          - generic [ref=e44]:
+            - link "Selected work" [ref=e45] [cursor=pointer]:
+              - /url: "#work"
+              - generic [ref=e46]: Selected work
+              - img [ref=e47]
+            - link "pjvallabhaneni@gmail.com" [ref=e50] [cursor=pointer]:
+              - /url: mailto:pjvallabhaneni@gmail.com
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - img "Joshua Vallabhaneni" [ref=e54]
+          - generic [ref=e55]:
+            - generic [ref=e56]: Based in College Park
+            - generic [ref=e57]: Maryland, USA
+        - generic [ref=e58]:
+          - generic [ref=e59]: Currently
+          - generic [ref=e60]: SWE Intern @ PayPal · ML Research @ UMD
+        - generic [ref=e61]:
+          - generic [ref=e62]: Studying
+          - generic [ref=e63]: CS (ML Track) + Data Science
+        - generic [ref=e64]:
+          - generic [ref=e65]: Scroll
+          - generic [ref=e66]: Work below ↓
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - paragraph [ref=e70]: Selected work
+        - heading "Things I've built." [level=2] [ref=e71]
+        - paragraph [ref=e72]: Hackathons, research, and client work. Each one taught me something different about shipping real systems.
+      - generic [ref=e73]:
+        - link "EduPlanner 01 View EduPlanner React · Vite · PostgreSQL 2025" [ref=e75] [cursor=pointer]:
+          - /url: /work/eduplanner
+          - generic [ref=e76]:
+            - img "EduPlanner" [ref=e77]
+            - generic [ref=e79]: "01"
+            - generic [ref=e82]:
+              - generic [ref=e83]: View
+              - img [ref=e84]
+          - generic [ref=e87]:
+            - generic [ref=e88]:
+              - heading "EduPlanner" [level=3] [ref=e89]
+              - paragraph [ref=e90]: React · Vite · PostgreSQL
+            - generic [ref=e91]: "2025"
+        - link "SwitchConfigSim 02 View SwitchConfigSim Go · Shell · REST APIs 2025" [ref=e93] [cursor=pointer]:
+          - /url: /work/switchconfigsim
+          - generic [ref=e94]:
+            - img "SwitchConfigSim" [ref=e95]
+            - generic [ref=e97]: "02"
+            - generic [ref=e100]:
+              - generic [ref=e101]: View
+              - img [ref=e102]
+          - generic [ref=e105]:
+            - generic [ref=e106]:
+              - heading "SwitchConfigSim" [level=3] [ref=e107]
+              - paragraph [ref=e108]: Go · Shell · REST APIs
+            - generic [ref=e109]: "2025"
+        - button "EcoQuery 03 View EcoQuery Chrome Extension · JavaScript · HTML/CSS 2024 – 2025" [ref=e110] [cursor=pointer]:
+          - generic [ref=e111]:
+            - img "EcoQuery" [ref=e112]
+            - generic [ref=e114]: "03"
+            - generic [ref=e117]:
+              - generic [ref=e118]: View
+              - img [ref=e119]
+          - generic [ref=e122]:
+            - generic [ref=e123]:
+              - heading "EcoQuery" [level=3] [ref=e124]
+              - paragraph [ref=e125]: Chrome Extension · JavaScript · HTML/CSS
+            - generic [ref=e126]: 2024 – 2025
+        - link "CodeShot 04 Award View CodeShot Python · OpenCV · PyTorch 2025" [ref=e128] [cursor=pointer]:
+          - /url: /work/codeshot
+          - generic [ref=e129]:
+            - img "CodeShot" [ref=e130]
+            - generic [ref=e131]:
+              - generic [ref=e132]: "04"
+              - generic [ref=e133]: Award
+            - generic [ref=e136]:
+              - generic [ref=e137]: View
+              - img [ref=e138]
+          - generic [ref=e141]:
+            - generic [ref=e142]:
+              - heading "CodeShot" [level=3] [ref=e143]
+              - paragraph [ref=e144]: Python · OpenCV · PyTorch
+            - generic [ref=e145]: "2025"
+        - button "QuRE 05 Award View QuRE Python · React · Node.js 2024" [ref=e146] [cursor=pointer]:
+          - generic [ref=e147]:
+            - img "QuRE" [ref=e148]
+            - generic [ref=e149]:
+              - generic [ref=e150]: "05"
+              - generic [ref=e151]: Award
+            - generic [ref=e154]:
+              - generic [ref=e155]: View
+              - img [ref=e156]
+          - generic [ref=e159]:
+            - generic [ref=e160]:
+              - heading "QuRE" [level=3] [ref=e161]
+              - paragraph [ref=e162]: Python · React · Node.js
+            - generic [ref=e163]: "2024"
+        - button "FireSync 06 View FireSync React · Node.js · Express 2024" [ref=e164] [cursor=pointer]:
+          - generic [ref=e165]:
+            - img "FireSync" [ref=e166]
+            - generic [ref=e168]: "06"
+            - generic [ref=e171]:
+              - generic [ref=e172]: View
+              - img [ref=e173]
+          - generic [ref=e176]:
+            - generic [ref=e177]:
+              - heading "FireSync" [level=3] [ref=e178]
+              - paragraph [ref=e179]: React · Node.js · Express
+            - generic [ref=e180]: "2024"
+        - button "Ignite 07 Award View Ignite Python · React · Flask 2024" [ref=e181] [cursor=pointer]:
+          - generic [ref=e182]:
+            - img "Ignite" [ref=e183]
+            - generic [ref=e184]:
+              - generic [ref=e185]: "07"
+              - generic [ref=e186]: Award
+            - generic [ref=e189]:
+              - generic [ref=e190]: View
+              - img [ref=e191]
+          - generic [ref=e194]:
+            - generic [ref=e195]:
+              - heading "Ignite" [level=3] [ref=e196]
+              - paragraph [ref=e197]: Python · React · Flask
+            - generic [ref=e198]: "2024"
+        - button "CypressMFA 08 Award View CypressMFA Chrome Extension · Python · React 2024" [ref=e199] [cursor=pointer]:
+          - generic [ref=e200]:
+            - img "CypressMFA" [ref=e201]
+            - generic [ref=e202]:
+              - generic [ref=e203]: "08"
+              - generic [ref=e204]: Award
+            - generic [ref=e207]:
+              - generic [ref=e208]: View
+              - img [ref=e209]
+          - generic [ref=e212]:
+            - generic [ref=e213]:
+              - heading "CypressMFA" [level=3] [ref=e214]
+              - paragraph [ref=e215]: Chrome Extension · Python · React
+            - generic [ref=e216]: "2024"
+        - button "SkyCast 09 View SkyCast Python · React · Flask 2024" [ref=e217] [cursor=pointer]:
+          - generic [ref=e218]:
+            - img "SkyCast" [ref=e219]
+            - generic [ref=e221]: "09"
+            - generic [ref=e224]:
+              - generic [ref=e225]: View
+              - img [ref=e226]
+          - generic [ref=e229]:
+            - generic [ref=e230]:
+              - heading "SkyCast" [level=3] [ref=e231]
+              - paragraph [ref=e232]: Python · React · Flask
+            - generic [ref=e233]: "2024"
+        - button "Drug Efficacy Prediction 10 View Drug Efficacy Prediction Java · JDBC · Apache Commons Math 2023 – 2024" [ref=e234] [cursor=pointer]:
+          - generic [ref=e235]:
+            - img "Drug Efficacy Prediction" [ref=e236]
+            - generic [ref=e238]: "10"
+            - generic [ref=e241]:
+              - generic [ref=e242]: View
+              - img [ref=e243]
+          - generic [ref=e246]:
+            - generic [ref=e247]:
+              - heading "Drug Efficacy Prediction" [level=3] [ref=e248]
+              - paragraph [ref=e249]: Java · JDBC · Apache Commons Math
+            - generic [ref=e250]: 2023 – 2024
+        - button "Vital Smart 11 View Vital Smart Arduino · C++ · Firebase 2021 – 2023" [ref=e251] [cursor=pointer]:
+          - generic [ref=e252]:
+            - img "Vital Smart" [ref=e253]
+            - generic [ref=e255]: "11"
+            - generic [ref=e258]:
+              - generic [ref=e259]: View
+              - img [ref=e260]
+          - generic [ref=e263]:
+            - generic [ref=e264]:
+              - heading "Vital Smart" [level=3] [ref=e265]
+              - paragraph [ref=e266]: Arduino · C++ · Firebase
+            - generic [ref=e267]: 2021 – 2023
+        - button "Clevr 12 View Clevr JavaScript · Google Apps Script 2020 – 2023" [ref=e268] [cursor=pointer]:
+          - generic [ref=e269]:
+            - img "Clevr" [ref=e270]
+            - generic [ref=e272]: "12"
+            - generic [ref=e275]:
+              - generic [ref=e276]: View
+              - img [ref=e277]
+          - generic [ref=e280]:
+            - generic [ref=e281]:
+              - heading "Clevr" [level=3] [ref=e282]
+              - paragraph [ref=e283]: JavaScript · Google Apps Script
+            - generic [ref=e284]: 2020 – 2023
+        - button "Baby Saver 13 View Baby Saver Arduino · C++ · IoT 2018 – 2020" [ref=e285] [cursor=pointer]:
+          - generic [ref=e286]:
+            - img "Baby Saver" [ref=e287]
+            - generic [ref=e289]: "13"
+            - generic [ref=e292]:
+              - generic [ref=e293]: View
+              - img [ref=e294]
+          - generic [ref=e297]:
+            - generic [ref=e298]:
+              - heading "Baby Saver" [level=3] [ref=e299]
+              - paragraph [ref=e300]: Arduino · C++ · IoT
+            - generic [ref=e301]: 2018 – 2020
+    - generic [ref=e303]:
+      - generic [ref=e304]:
+        - paragraph [ref=e305]: Where I've worked
+        - heading "Experience." [level=2] [ref=e306]
+      - list [ref=e307]:
+        - listitem [ref=e308]:
+          - generic [ref=e309]: May — Aug 2025
+          - generic [ref=e310]:
+            - generic [ref=e311]:
+              - heading "Software Engineer Intern" [level=3] [ref=e312]
+              - generic [ref=e313]: ·
+              - generic [ref=e314]:
+                - text: PayPal
+                - img "PayPal" [ref=e317]
+            - generic [ref=e318]: San Jose, CA
+            - list [ref=e319]:
+              - listitem [ref=e320]:
+                - generic [ref=e322]: Engineered an E2E integration pipeline (JGit, Picocli, GPT-4) in PayPal's CI workflow, automating dev infra setup.
+              - listitem [ref=e323]:
+                - generic [ref=e325]: Deployed GitHub API / Jenkins workflow for PR automation, slashing dev onboarding from 3 days to 5 minutes.
+              - listitem [ref=e326]:
+                - generic [ref=e328]: Shipped a RAG pipeline (Graph API + OpenAI Whisper + LanceDB) that answers questions about internal docs and SharePoint videos in under 2s via a Next.js chatbot.
+        - listitem [ref=e329]:
+          - generic [ref=e330]: May 2024 — May 2025
+          - generic [ref=e331]:
+            - generic [ref=e332]:
+              - heading "Junior Software Engineer (Full-Time)" [level=3] [ref=e333]
+              - generic [ref=e334]: ·
+              - generic [ref=e335]:
+                - text: AstraZeneca · Evinova
+                - generic [ref=e336]:
+                  - img "AstraZeneca" [ref=e338]
+                  - img "Evinova" [ref=e340]
+            - generic [ref=e341]: Gaithersburg, MD
+            - list [ref=e342]:
+              - listitem [ref=e343]:
+                - generic [ref=e345]: Worked 40 hr/wk as a full-time student at Evinova, AstraZeneca's health-tech subsidiary.
+              - listitem [ref=e346]:
+                - generic [ref=e348]: Led development of a production health analytics platform (Vite, React, Storybook) with a real-time patient monitoring interface built in D3.js and Motion.
+              - listitem [ref=e349]:
+                - generic [ref=e351]: Streamlined time-series processing, PCA and signal analysis with Pandas, NumPy, and SciPy.
+              - listitem [ref=e352]:
+                - generic [ref=e354]: Devised binary / multiclass classifiers using k-fold CV and confusion matrices to tune thresholds.
+        - listitem [ref=e355]:
+          - generic [ref=e356]: May — Aug 2024
+          - generic [ref=e357]:
+            - generic [ref=e358]:
+              - heading "Human-Computer Interaction Intern" [level=3] [ref=e359]
+              - generic [ref=e360]: ·
+              - generic [ref=e361]:
+                - text: CATS2
+                - img "CATS2" [ref=e364]
+            - generic [ref=e365]: Sunnyvale, CA
+            - list [ref=e366]:
+              - listitem [ref=e367]:
+                - generic [ref=e369]: Conducted user testing sessions to enhance OWL app usability.
+              - listitem [ref=e370]:
+                - generic [ref=e372]: Developed feedback questionnaires to gather actionable insights.
+              - listitem [ref=e373]:
+                - generic [ref=e375]: Produced reports on findings by applying UX design heuristics.
+        - listitem [ref=e376]:
+          - generic [ref=e377]: Jun — Aug 2022
+          - generic [ref=e378]:
+            - generic [ref=e379]:
+              - heading "Software Engineer Intern" [level=3] [ref=e380]
+              - generic [ref=e381]: ·
+              - generic [ref=e382]:
+                - text: Proxzar.AI
+                - img "Proxzar" [ref=e385]
+            - generic [ref=e386]: East Brunswick, NJ
+            - list [ref=e387]:
+              - listitem [ref=e388]:
+                - generic [ref=e390]: Engineered a React UI with Transformer NLP for intent / entity extraction, boosting throughput.
+              - listitem [ref=e391]:
+                - generic [ref=e393]: Deployed 5 semantic-search interfaces with contextual embeddings and dynamic ranking.
+        - listitem [ref=e394]:
+          - generic [ref=e395]: Jun — Aug 2021
+          - generic [ref=e396]:
+            - generic [ref=e397]:
+              - heading "Engineer Intern" [level=3] [ref=e398]
+              - generic [ref=e399]: ·
+              - generic [ref=e400]:
+                - text: United Safety & Survivability Corp.
+                - img "United Safety" [ref=e403]
+            - generic [ref=e404]: Exton, PA
+            - list [ref=e405]:
+              - listitem [ref=e406]:
+                - generic [ref=e408]: Assembled blast-adaptive military seats and tested for performance issues.
+              - listitem [ref=e409]:
+                - generic [ref=e411]: Trained in CAD techniques using SOLIDWORKS.
+              - listitem [ref=e412]:
+                - generic [ref=e414]: Designed innovative 5-point harness restraint alternatives.
+    - generic [ref=e416]:
+      - generic [ref=e417]:
+        - paragraph [ref=e418]: Study & research
+        - heading "Education." [level=2] [ref=e419]
+      - generic [ref=e420]:
+        - generic [ref=e421]:
+          - generic [ref=e422]: Degree
+          - heading "B.S. Computer Science — ML Track" [level=3] [ref=e423]
+          - paragraph [ref=e424]: Minor in Data Science
+          - paragraph [ref=e425]: University of Maryland, College Park
+          - paragraph [ref=e426]: 2023 — 2026
+          - generic [ref=e427]:
+            - generic [ref=e428]: Honors
+            - list [ref=e429]:
+              - listitem [ref=e430]: Dean's List (all semesters)
+              - listitem [ref=e432]: President's Scholarship
+              - listitem [ref=e434]: OMSE Academic Excellence
+        - generic [ref=e436]:
+          - generic [ref=e437]: Involvement
+          - list [ref=e438]:
+            - listitem [ref=e439]:
+              - generic [ref=e440]:
+                - heading "Machine Learning Researcher" [level=4] [ref=e441]
+                - generic [ref=e442]: Apr 2025 — Present
+              - paragraph [ref=e443]: UMD, Department of Computer Science
+              - list [ref=e444]:
+                - listitem [ref=e445]: Presenting ConSOLAE at CSBW 2025 — a contractive autoencoder framework for protein fold recognition.
+                - listitem [ref=e447]: Achieved 96.48% accuracy on the SCOP benchmark, surpassing prior fold-classification baselines.
+                - listitem [ref=e449]: Benchmarked representation learning with unsupervised regularizers to boost generalization (88.13% recall).
+            - listitem [ref=e451]:
+              - generic [ref=e452]:
+                - heading "Full-Stack Developer" [level=4] [ref=e453]
+                - generic [ref=e454]: Jan 2024 — Present
+              - link "xFoundry @ UMD" [ref=e455] [cursor=pointer]:
+                - /url: https://www.linkedin.com/posts/university-of-maryland_congratulations-to-the-umd-student-team-defenx-activity-7373369138905325568-RWY1/
+                - text: xFoundry @ UMD
+                - img [ref=e456]
+              - list [ref=e459]:
+                - listitem [ref=e460]: Received $250k investment for an AI-driven tool to better protect schools from gun violence.
+    - generic [ref=e463]:
+      - paragraph [ref=e464]: Get in touch
+      - heading "Let’s build something good." [level=2] [ref=e465]:
+        - text: Let’s build
+        - text: something good.
+      - generic [ref=e466]:
+        - generic [ref=e467]:
+          - link "pjvallabhaneni@gmail.com" [ref=e468] [cursor=pointer]:
+            - /url: mailto:pjvallabhaneni@gmail.com
+            - generic [ref=e469]: pjvallabhaneni@gmail.com
+            - img [ref=e470]
+          - paragraph [ref=e473]: I’m open to internships, research collaborations and freelance projects. Reply time is usually under a day.
+        - generic [ref=e474]:
+          - generic [ref=e475]:
+            - generic [ref=e476]: Based in
+            - generic [ref=e477]: College Park, Maryland
+          - generic [ref=e478]:
+            - generic [ref=e479]: Timezone
+            - generic [ref=e480]: EST (UTC−5)
+          - generic [ref=e481]:
+            - generic [ref=e482]: Elsewhere
+            - list [ref=e483]:
+              - listitem [ref=e484]:
+                - link "GitHub" [ref=e485] [cursor=pointer]:
+                  - /url: https://github.com/Joshua-Vallabhaneni
+                  - text: GitHub
+                  - img [ref=e486]
+              - listitem [ref=e489]:
+                - link "LinkedIn" [ref=e490] [cursor=pointer]:
+                  - /url: https://linkedin.com/in/joshua-vallabhaneni
+                  - text: LinkedIn
+                  - img [ref=e491]
+          - generic [ref=e494]:
+            - generic [ref=e495]: Availability
+            - generic [ref=e496]: Open for 2026
+  - contentinfo [ref=e498]:
+    - generic [ref=e499]:
+      - generic [ref=e500]: © 2026 Joshua Vallabhaneni
+      - generic [ref=e501]:
+        - link "GitHub" [ref=e502] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni
+        - link "LinkedIn" [ref=e503] [cursor=pointer]:
+          - /url: https://linkedin.com/in/joshua-vallabhaneni
+        - link "Email" [ref=e504] [cursor=pointer]:
+          - /url: mailto:pjvallabhaneni@gmail.com
+        - button "Toggle theme" [ref=e505] [cursor=pointer]:
+          - img
+          - img [ref=e506]
+  - alert [ref=e508]

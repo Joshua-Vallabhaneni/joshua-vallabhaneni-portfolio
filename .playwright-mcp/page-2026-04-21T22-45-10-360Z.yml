@@ -1,0 +1,1154 @@
+- generic [ref=e2]:
+  - banner "Primary" [ref=e3]:
+    - link "Skip to Main Content" [ref=e4] [cursor=pointer]:
+      - /url: "#main"
+    - generic [ref=e5]:
+      - link "Home Page" [ref=e6] [cursor=pointer]:
+        - /url: https://webflow.com/?r=0
+        - img "Webflow" [ref=e8]
+      - navigation [ref=e17]:
+        - list [ref=e19]:
+          - listitem [ref=e20]:
+            - button "Platform" [ref=e22] [cursor=pointer]:
+              - generic [ref=e23]: Platform
+          - listitem [ref=e24]:
+            - button "Solutions" [ref=e26] [cursor=pointer]:
+              - generic [ref=e27]: Solutions
+          - listitem [ref=e28]:
+            - button "Resources" [ref=e30] [cursor=pointer]:
+              - generic [ref=e31]: Resources
+          - listitem [ref=e32]:
+            - link "Enterprise" [ref=e33] [cursor=pointer]:
+              - /url: https://webflow.com/enterprise
+          - listitem [ref=e34]:
+            - link "Pricing" [ref=e35] [cursor=pointer]:
+              - /url: https://webflow.com/pricing
+      - generic [ref=e36]:
+        - generic [ref=e37]:
+          - link "Log in" [ref=e38] [cursor=pointer]:
+            - /url: https://webflow.com/login
+          - link "Contact Sales" [ref=e40] [cursor=pointer]:
+            - /url: https://webflow.com/enterprise/contact-sales
+        - link "Start for free" [ref=e42] [cursor=pointer]:
+          - /url: https://webflow.com/signup
+  - main [ref=e44]:
+    - generic [ref=e45]:
+      - complementary [ref=e47]:
+        - generic [ref=e48]:
+          - generic [ref=e50]:
+            - generic [ref=e51]:
+              - generic:
+                - generic:
+                  - heading "Make your website a growth engine" [level=1] [ref=e52]
+                  - paragraph [ref=e53]: Build your brand. Rank in AI search. Drive real revenue. All with Webflow.
+                - generic [ref=e54]:
+                  - generic [ref=e56]:
+                    - generic [ref=e58]: How do you want to build?
+                    - generic [ref=e60]:
+                      - generic [ref=e62]: Building at scale?
+                      - link "Talk to Sales" [ref=e64] [cursor=pointer]:
+                        - /url: /enterprise/contact-sales
+                        - generic [ref=e65]: Talk to Sales
+                  - generic [ref=e66]:
+                    - generic [ref=e68]:
+                      - generic [ref=e69]:
+                        - generic [ref=e71]:
+                          - generic [ref=e73]: AI site builder
+                          - generic [ref=e75]: New
+                        - paragraph [ref=e76]: Quickly generate a custom website.
+                      - generic [ref=e77]:
+                        - img "A mockup of a website home page built with Webflow's AI site builder." [ref=e81]
+                        - generic "none" [ref=e83] [cursor=pointer]:
+                          - generic [ref=e84]:
+                            - generic: →
+                      - link "Buid with AI Site Builder" [ref=e85] [cursor=pointer]:
+                        - /url: https://webflow.com/signup
+                    - generic [ref=e87]:
+                      - generic [ref=e88]:
+                        - generic [ref=e90]: Template
+                        - paragraph [ref=e91]: Start with a design that fits your needs.
+                      - generic [ref=e92]:
+                        - img "A screenshot of a Webflow template called, \"Maeve.\"" [ref=e96]
+                        - generic "none" [ref=e98] [cursor=pointer]:
+                          - generic [ref=e99]:
+                            - generic: →
+                      - link "Build with a template" [ref=e100] [cursor=pointer]:
+                        - /url: https://webflow.com/signup
+                    - generic [ref=e102]:
+                      - generic [ref=e103]:
+                        - generic [ref=e105]: Blank site
+                        - paragraph [ref=e106]: Build a custom site from scratch.
+                      - generic [ref=e107]:
+                        - img "An abstract representation of a blank Webflow project." [ref=e111]
+                        - generic "none" [ref=e113] [cursor=pointer]:
+                          - generic [ref=e114]:
+                            - generic: →
+                      - link "Start with a blank site" [ref=e115] [cursor=pointer]:
+                        - /url: https://webflow.com/signup
+            - generic [ref=e116]:
+              - generic [ref=e122]:
+                - generic [ref=e124]:
+                  - img "verifone logo" [ref=e125]
+                  - generic [ref=e126]:
+                    - generic [ref=e128]:
+                      - img [ref=e129]
+                      - img "ncr logo" [ref=e133]
+                    - generic:
+                      - generic:
+                        - link "ncr logo":
+                          - /url: https://webflow.com/customers/ncr
+                        - generic:
+                          - generic: 10x
+                          - generic: In cost savings annually
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "monday.com logo" [ref=e134]
+                  - img "spotify logo" [ref=e135]
+                  - img "ted logo" [ref=e136]
+                  - generic [ref=e137]:
+                    - generic [ref=e139]:
+                      - img [ref=e140]
+                      - img "dropbox" [ref=e144]
+                    - generic:
+                      - generic:
+                        - link "dropbox":
+                          - /url: https://webflow.com/customers/dropbox-sign
+                        - generic:
+                          - generic: 67%
+                          - generic: decrease in dev ticketing
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "greenhouse logo" [ref=e145]
+                  - img "clear logo" [ref=e146]
+                  - generic [ref=e147]:
+                    - generic [ref=e149]:
+                      - img [ref=e150]
+                      - img "orangetheory fitness logo" [ref=e154]
+                    - generic:
+                      - generic:
+                        - link "orangetheory fitness logo":
+                          - /url: https://webflow.com/customers/orangetheory-fitness
+                        - generic:
+                          - generic: $6M
+                          - generic: in cost savings annually
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "checkout.com logo" [ref=e155]
+                  - img "soundcloud logo" [ref=e156]
+                  - generic [ref=e157]:
+                    - generic [ref=e159]:
+                      - img [ref=e160]
+                      - img "walker & dunlop logo" [ref=e164]
+                    - generic:
+                      - generic:
+                        - link "walker & dunlop logo":
+                          - /url: https://webflow.com/customers/walker-dunlop
+                        - generic:
+                          - generic: 56%
+                          - generic: increase in form fills
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "reddit logo" [ref=e165]
+                  - generic [ref=e166]:
+                    - generic [ref=e168]:
+                      - img [ref=e169]
+                      - img "docusign logo" [ref=e173]
+                    - generic:
+                      - generic:
+                        - link "docusign logo":
+                          - /url: https://webflow.com/customers/docusign
+                        - generic:
+                          - generic: 1,170%
+                          - generic: increase in traffic YoY
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - generic [ref=e174]:
+                    - generic [ref=e176]:
+                      - img [ref=e177]
+                      - img "abm logo" [ref=e181]
+                    - generic:
+                      - generic:
+                        - link "abm logo":
+                          - /url: https://webflow.com/customers/abm
+                        - generic:
+                          - generic: $200M
+                          - generic: in new pipeline generated post-site launch
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "the new york times logo" [ref=e182]
+                  - img "ideo logo" [ref=e183]
+                  - img "upwork logo" [ref=e184]
+                  - img "discord logo" [ref=e185]
+                  - generic [ref=e186]:
+                    - generic [ref=e188]:
+                      - img [ref=e189]
+                      - img "lattice logo" [ref=e193]
+                    - generic:
+                      - generic:
+                        - link "lattice logo":
+                          - /url: https://webflow.com/customers/lattice
+                        - generic:
+                          - generic: +20%
+                          - generic: increase in site-wide conversion
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                - generic [ref=e195]:
+                  - img "verifone logo" [ref=e196]
+                  - generic [ref=e197]:
+                    - generic [ref=e199]:
+                      - img [ref=e200]
+                      - img "ncr logo" [ref=e204]
+                    - generic:
+                      - generic:
+                        - link "ncr logo":
+                          - /url: https://webflow.com/customers/ncr
+                        - generic:
+                          - generic: 10x
+                          - generic: In cost savings annually
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "monday.com logo" [ref=e205]
+                  - img "spotify logo" [ref=e206]
+                  - img "ted logo" [ref=e207]
+                  - generic [ref=e208]:
+                    - generic [ref=e210]:
+                      - img [ref=e211]
+                      - img "dropbox" [ref=e215]
+                    - generic:
+                      - generic:
+                        - link "dropbox":
+                          - /url: https://webflow.com/customers/dropbox-sign
+                        - generic:
+                          - generic: 67%
+                          - generic: decrease in dev ticketing
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "greenhouse logo" [ref=e216]
+                  - img "clear logo" [ref=e217]
+                  - generic [ref=e218]:
+                    - generic [ref=e220]:
+                      - img [ref=e221]
+                      - img "orangetheory fitness logo" [ref=e225]
+                    - generic:
+                      - generic:
+                        - link "orangetheory fitness logo":
+                          - /url: https://webflow.com/customers/orangetheory-fitness
+                        - generic:
+                          - generic: $6M
+                          - generic: in cost savings annually
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "checkout.com logo" [ref=e226]
+                  - img "soundcloud logo" [ref=e227]
+                  - generic [ref=e228]:
+                    - generic [ref=e230]:
+                      - img [ref=e231]
+                      - img "walker & dunlop logo" [ref=e235]
+                    - generic:
+                      - generic:
+                        - link "walker & dunlop logo":
+                          - /url: https://webflow.com/customers/walker-dunlop
+                        - generic:
+                          - generic: 56%
+                          - generic: increase in form fills
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "reddit logo" [ref=e236]
+                  - generic [ref=e237]:
+                    - generic [ref=e239]:
+                      - img [ref=e240]
+                      - img "docusign logo" [ref=e244]
+                    - generic:
+                      - generic:
+                        - link "docusign logo":
+                          - /url: https://webflow.com/customers/docusign
+                        - generic:
+                          - generic: 1,170%
+                          - generic: increase in traffic YoY
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - generic [ref=e245]:
+                    - generic [ref=e247]:
+                      - img [ref=e248]
+                      - img "abm logo" [ref=e252]
+                    - generic:
+                      - generic:
+                        - link "abm logo":
+                          - /url: https://webflow.com/customers/abm
+                        - generic:
+                          - generic: $200M
+                          - generic: in new pipeline generated post-site launch
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+                  - img "the new york times logo" [ref=e253]
+                  - img "ideo logo" [ref=e254]
+                  - img "upwork logo" [ref=e255]
+                  - img "discord logo" [ref=e256]
+                  - generic [ref=e257]:
+                    - generic [ref=e259]:
+                      - img [ref=e260]
+                      - img "lattice logo" [ref=e264]
+                    - generic:
+                      - generic:
+                        - link "lattice logo":
+                          - /url: https://webflow.com/customers/lattice
+                        - generic:
+                          - generic: +20%
+                          - generic: increase in site-wide conversion
+                        - generic:
+                          - generic: Read story
+                          - generic:
+                            - generic:
+                              - generic: →
+              - button "Pause Video" [ref=e270] [cursor=pointer]:
+                - img
+          - generic:
+            - generic:
+              - generic:
+                - img
+        - generic [ref=e271]:
+          - generic [ref=e275]:
+            - paragraph [ref=e277]: "“@type”: “WebPageElement”, “id”: \"webflow.com/#platform\", “name”: \"Webflow is the agentic web marketing platform for high-performing brands\""
+            - generic [ref=e278]:
+              - paragraph [ref=e280]: "“@type”: “ItemList”, “name”: \"Personalization\", \"audience\":["
+              - group [ref=e281]:
+                - generic [ref=e282] [cursor=pointer]:
+                  - generic: "“@audienceType”: “Marketer”"
+              - group [ref=e283]:
+                - generic [ref=e284] [cursor=pointer]:
+                  - generic: "“@audienceType”: “Designer”"
+              - group [ref=e285]:
+                - generic [ref=e286] [cursor=pointer]:
+                  - generic: "“@audienceType”: “Developer”"
+              - group [ref=e287]:
+                - generic [ref=e288] [cursor=pointer]:
+                  - generic: "“@audienceType”: “Agency”"
+              - paragraph [ref=e290]: "]"
+            - generic [ref=e291]:
+              - generic [ref=e292]:
+                - generic [ref=e295]:
+                  - generic [ref=e296]: Optimize your site for machines
+                  - generic [ref=e297]:
+                    - generic: Explore Webflow AEO
+                    - generic [ref=e299]:
+                      - generic: →
+                - link [ref=e304] [cursor=pointer]:
+                  - /url: /feature/aeo
+                  - generic [ref=e305]: Explore AEO
+              - generic [ref=e307]:
+                - generic: View full schema
+                - link [ref=e308] [cursor=pointer]:
+                  - /url: https://validator.schema.org/#url=http%3A%2F%2Fwebflow.com
+                  - generic [ref=e309]: View full schema
+          - generic [ref=e315]:
+            - heading "Webflow is the agentic web marketing platform for high-performing brands" [level=2] [ref=e321]
+            - generic [ref=e326]:
+              - generic [ref=e328]:
+                - heading "Build together" [level=3] [ref=e335]
+                - paragraph [ref=e338]: Bring team members and AI agents into one shared workspace, with design systems to keep everything on brand.
+                - generic [ref=e339]:
+                  - generic: Start building
+                  - generic [ref=e341]:
+                    - generic: →
+                  - link "Start building" [ref=e342] [cursor=pointer]:
+                    - /url: https://webflow.com/signup
+                    - generic [ref=e343]: Start building
+              - generic [ref=e345]:
+                - heading "Publish at scale" [level=3] [ref=e348]
+                - paragraph [ref=e351]: Create and manage content in a visual, composable CMS — with built-in SEO and AEO to reach humans and machines alike.
+                - generic [ref=e352]:
+                  - generic: Start publishing
+                  - generic [ref=e354]:
+                    - generic: →
+                  - link "Start publishing" [ref=e355] [cursor=pointer]:
+                    - /url: https://webflow.com/signup
+                    - generic [ref=e356]: Start publishing
+              - generic [ref=e358]:
+                - heading "Optimize for growth" [level=3] [ref=e361]
+                - paragraph [ref=e364]: Turn every page into a revenue driver with native analytics and AI that show you what's working and help you scale it.
+                - generic [ref=e365]:
+                  - generic: Start optimizing
+                  - generic [ref=e367]:
+                    - generic: →
+                  - link "Start optimizing" [ref=e368] [cursor=pointer]:
+                    - /url: https://webflow.com/signup
+                    - generic [ref=e369]: Start optimizing
+          - button [ref=e370] [cursor=pointer]:
+            - img [ref=e371]
+            - generic [ref=e373]: Machine Mode
+        - generic [ref=e380]:
+          - paragraph [ref=e383]: "AI has raised the stakes: Now brand websites need to resonate with humans, rank in AI search, and drive measurable revenue. Webflow is the platform modern teams choose to build sites that do it all."
+          - generic [ref=e384]:
+            - generic: Discover Webflow AI
+            - generic [ref=e386]:
+              - generic: ↗
+            - link "Discover Webflow AI" [ref=e387] [cursor=pointer]:
+              - /url: /ai
+              - generic [ref=e388]: Discover Webflow AI
+      - generic [ref=e389]:
+        - generic [ref=e393]:
+          - paragraph [ref=e395]: "“@type”: “WebPageElement”, “id”: \"webflow.com/#customers\", “name”: \"300,000+ brands move the needle with Webflow\""
+          - generic [ref=e396]:
+            - paragraph [ref=e398]: "“@type”: “ItemList”, “name”: \"Personalization\", \"audience\":["
+            - group [ref=e399]:
+              - generic [ref=e400] [cursor=pointer]:
+                - generic: "“@audienceType”: “Marketer”"
+            - group [ref=e401]:
+              - generic [ref=e402] [cursor=pointer]:
+                - generic: "“@audienceType”: “Designer”"
+            - group [ref=e403]:
+              - generic [ref=e404] [cursor=pointer]:
+                - generic: "“@audienceType”: “Developer”"
+            - group [ref=e405]:
+              - generic [ref=e406] [cursor=pointer]:
+                - generic: "“@audienceType”: “Agency”"
+            - paragraph [ref=e408]: "]"
+          - generic [ref=e409]:
+            - generic [ref=e410]:
+              - generic [ref=e413]:
+                - generic [ref=e414]: Optimize your site for machines
+                - generic [ref=e415]:
+                  - generic: Explore Webflow AEO
+                  - generic [ref=e417]:
+                    - generic: →
+              - link [ref=e422] [cursor=pointer]:
+                - /url: /feature/aeo
+                - generic [ref=e423]: Explore AEO
+            - generic [ref=e425]:
+              - generic: View full schema
+              - link [ref=e426] [cursor=pointer]:
+                - /url: https://validator.schema.org/#url=http%3A%2F%2Fwebflow.com
+                - generic [ref=e427]: View full schema
+        - generic [ref=e434]:
+          - generic [ref=e436]:
+            - generic [ref=e438]:
+              - heading "300,000+ brands move the needle with Webflow" [level=2] [ref=e442]
+              - generic [ref=e446]:
+                - generic [ref=e448]:
+                  - button "Previous slide" [disabled]:
+                    - generic:
+                      - generic: ←
+                - button "Next slide" [ref=e451] [cursor=pointer]:
+                  - generic [ref=e452]:
+                    - generic: →
+            - list [ref=e457]:
+              - listitem "1 / 6" [ref=e458]:
+                - generic [ref=e460]:
+                  - link "Read customer story" [ref=e461] [cursor=pointer]:
+                    - /url: /customers/verifone
+                    - generic [ref=e462]: Read customer story
+                  - button [ref=e468] [cursor=pointer]:
+                    - img
+                  - generic [ref=e472]:
+                    - generic [ref=e473]:
+                      - generic [ref=e474]:
+                        - generic [ref=e475]: "32"
+                        - generic [ref=e476]: global sites launched in 10 days
+                      - generic [ref=e477]:
+                        - paragraph [ref=e480]: “With Webflow, we’re not just keeping up, we’re setting the pace. It’s the speedboat that’s helping us move faster than ever before.”
+                        - generic [ref=e481]: Rob Alfano
+                        - generic [ref=e482]: VP of Digital Marketing
+                    - generic "none" [ref=e484] [cursor=pointer]:
+                      - generic [ref=e485]:
+                        - generic: ↗
+              - listitem "2 / 6" [ref=e486]:
+                - generic [ref=e488]:
+                  - link "Read customer story" [ref=e489] [cursor=pointer]:
+                    - /url: /customers/lattice
+                    - generic [ref=e490]: Read customer story
+                  - button [ref=e496] [cursor=pointer]:
+                    - img
+                  - generic [ref=e500]:
+                    - generic [ref=e501]:
+                      - generic [ref=e502]:
+                        - generic [ref=e503]: 20%
+                        - generic [ref=e504]: Increase in site-wide conversion
+                      - generic [ref=e505]:
+                        - paragraph [ref=e508]: “With Webflow, we’ve significantly improved organic traffic, SEO, and conversions. From my perspective as CMO, that’s a huge win because our brand is reaching more people.”
+                        - generic [ref=e509]: Elizabeth Walton Egan
+                        - generic [ref=e510]: CMO
+                    - generic "none" [ref=e512] [cursor=pointer]:
+                      - generic [ref=e513]:
+                        - generic: ↗
+              - listitem "3 / 6" [ref=e514]:
+                - generic [ref=e516]:
+                  - link "Read customer story" [ref=e517] [cursor=pointer]:
+                    - /url: /customers/orangetheory-fitness
+                    - generic [ref=e518]: Read customer story
+                  - button [ref=e524] [cursor=pointer]:
+                    - img
+                  - generic [ref=e528]:
+                    - generic [ref=e529]:
+                      - generic [ref=e530]:
+                        - generic [ref=e531]: $6M
+                        - generic [ref=e532]: in cost savings annually
+                      - generic [ref=e533]:
+                        - paragraph [ref=e536]: “We’re saving upwards of $6 million a year with Webflow, and we’ve reinvested those savings in other areas like website optimization and localization… that’s been really powerful.”
+                        - generic [ref=e537]: Malcolm Greene
+                        - generic [ref=e538]: Chief Information Officer
+                    - generic "none" [ref=e540] [cursor=pointer]:
+                      - generic [ref=e541]:
+                        - generic: ↗
+              - listitem "4 / 6" [ref=e542]:
+                - generic [ref=e544]:
+                  - link "Read customer story" [ref=e545] [cursor=pointer]:
+                    - /url: /customers/fivetran
+                    - generic [ref=e546]: Read customer story
+                  - button [ref=e552] [cursor=pointer]:
+                    - img
+                  - generic [ref=e556]:
+                    - generic [ref=e557]:
+                      - generic [ref=e558]:
+                        - generic [ref=e559]: 98%
+                        - generic [ref=e560]: Increase in speed to market
+                      - generic [ref=e561]:
+                        - paragraph [ref=e564]: “With Webflow Enterprise, we're able to move with trust and confidence that things will get done quickly without compromising our brand or draining resources.”
+                        - generic [ref=e565]: Cat Origitano
+                        - generic [ref=e566]: VP of Product & Portfolio Marketing
+                    - generic "none" [ref=e568] [cursor=pointer]:
+                      - generic [ref=e569]:
+                        - generic: ↗
+              - listitem "5 / 6" [ref=e570]:
+                - generic [ref=e572]:
+                  - link "Read customer story" [ref=e573] [cursor=pointer]:
+                    - /url: /customers/walker-dunlop
+                    - generic [ref=e574]: Read customer story
+                  - button [ref=e580] [cursor=pointer]:
+                    - img
+                  - generic [ref=e584]:
+                    - generic [ref=e585]:
+                      - generic [ref=e586]:
+                        - generic [ref=e587]: 56%
+                        - generic [ref=e588]: Increase in form fills
+                      - generic [ref=e589]:
+                        - paragraph [ref=e592]: "“Webflow empowers us to do what we do best as marketers, designers, and content creators: It strips away the technical complexity and unleashes us to be creative, try new things, and iterate quickly.”"
+                        - generic [ref=e593]: Kokko Tso
+                        - generic [ref=e594]: VP Digital Marketing
+                    - generic "none" [ref=e596] [cursor=pointer]:
+                      - generic [ref=e597]:
+                        - generic: ↗
+              - listitem "6 / 6" [ref=e598]:
+                - generic [ref=e600]:
+                  - link "Read customer story" [ref=e601] [cursor=pointer]:
+                    - /url: /customers/docusign
+                    - generic [ref=e602]: Read customer story
+                  - button [ref=e608] [cursor=pointer]:
+                    - img
+                  - generic [ref=e612]:
+                    - generic [ref=e613]:
+                      - generic [ref=e614]:
+                        - generic [ref=e615]: 1,170%
+                        - generic [ref=e616]: increase in traffic YoY
+                      - generic [ref=e617]:
+                        - paragraph [ref=e620]: “Webflow doesn’t just allow you to work faster and easier, but differently. Speed is huge, but once you get engineers, designers, and copywriters to really enjoy working together, that’s something different.”
+                        - generic [ref=e621]: Carla Weis
+                        - generic [ref=e622]: VP, Brand & Creative
+                    - generic "none" [ref=e624] [cursor=pointer]:
+                      - generic [ref=e625]:
+                        - generic: ↗
+          - paragraph [ref=e629]:
+            - text: Let's talk about what your website could be doing for your business.
+            - link "Talk to sales ->" [ref=e630] [cursor=pointer]:
+              - /url: /enterprise/contact-sales
+        - button [ref=e631] [cursor=pointer]:
+          - img [ref=e632]
+          - generic [ref=e634]: Machine Mode
+      - generic [ref=e635]:
+        - generic [ref=e639]:
+          - paragraph [ref=e641]: "“@type”: “WebPageElement”, “id”: \"webflow.com/#ai-features\", “name”: \"From idea to impact, faster\", \"description\": \"Webflow's agentic AI works alongside your team — drafting copy, generating pages, running experiments — with the guardrails enterprise teams need.\","
+          - generic [ref=e642]:
+            - paragraph [ref=e644]: "“@type”: “ItemList”, “name”: \"Personalization\", \"audience\":["
+            - group [ref=e645]:
+              - generic [ref=e646] [cursor=pointer]:
+                - generic: "“@audienceType”: “Marketer”"
+            - group [ref=e647]:
+              - generic [ref=e648] [cursor=pointer]:
+                - generic: "“@audienceType”: “Designer”"
+            - group [ref=e649]:
+              - generic [ref=e650] [cursor=pointer]:
+                - generic: "“@audienceType”: “Developer”"
+            - group [ref=e651]:
+              - generic [ref=e652] [cursor=pointer]:
+                - generic: "“@audienceType”: “Agency”"
+            - paragraph [ref=e654]: "]"
+          - generic [ref=e655]:
+            - generic [ref=e656]:
+              - generic [ref=e659]:
+                - generic [ref=e660]: Optimize your site for machines
+                - generic [ref=e661]:
+                  - generic: Explore Webflow AEO
+                  - generic [ref=e663]:
+                    - generic: →
+              - link [ref=e668] [cursor=pointer]:
+                - /url: /feature/aeo
+                - generic [ref=e669]: Explore AEO
+            - generic [ref=e671]:
+              - generic: View full schema
+              - link [ref=e672] [cursor=pointer]:
+                - /url: https://validator.schema.org/#url=http%3A%2F%2Fwebflow.com
+                - generic [ref=e673]: View full schema
+        - generic [ref=e676]:
+          - generic [ref=e681]:
+            - heading "From idea to impact, faster" [level=2] [ref=e687]
+            - generic [ref=e689]:
+              - paragraph [ref=e692]: Webflow’s agentic AI works alongside your team — drafting copy, generating pages, running experiments — with the guardrails enterprise teams need.
+              - generic [ref=e693]:
+                - generic: Discover Webflow AI
+                - generic [ref=e695]:
+                  - generic: →
+                - link "Discover Webflow AI" [ref=e696] [cursor=pointer]:
+                  - /url: /ai
+                  - generic [ref=e697]: Discover Webflow AI
+          - list [ref=e703]:
+            - listitem [ref=e704]:
+              - generic [ref=e705]:
+                - button "Select tab" [expanded] [ref=e706] [cursor=pointer]:
+                  - generic [ref=e707]: Select tab
+                - generic [ref=e709]:
+                  - heading "Build" [level=3] [ref=e711]
+                  - paragraph [ref=e714]: Create a site and design system from the ground up, modify it easily, and generate clean code to power dynamic experiences.
+            - listitem [ref=e720]:
+              - generic [ref=e721]:
+                - button "Select tab" [ref=e722] [cursor=pointer]:
+                  - generic [ref=e723]: Select tab
+                - generic [ref=e725]:
+                  - heading "Manage" [level=3] [ref=e727]
+                  - paragraph [ref=e730]: Generate copy and CMS collection items individually or in bulk to keep your site fresh, drive traffic, and strengthen your brand.
+            - listitem [ref=e731]:
+              - generic [ref=e732]:
+                - button "Select tab" [ref=e733] [cursor=pointer]:
+                  - generic [ref=e734]: Select tab
+                - generic [ref=e736]:
+                  - heading "Optimize" [level=3] [ref=e738]
+                  - paragraph [ref=e741]: Turn traffic into revenue. Native tools run experiments, personalize by audience, and optimize for traditional search and LLMs.
+        - button [ref=e742] [cursor=pointer]:
+          - img [ref=e743]
+          - generic [ref=e745]: Machine Mode
+      - generic [ref=e748]:
+        - generic [ref=e749]:
+          - heading "Everything marketing teams love about webflow" [level=2] [ref=e750]
+          - generic [ref=e751]: Everything
+          - button "Marketing teams, selected item 1 of 4" [ref=e753] [cursor=pointer]:
+            - generic [ref=e754]: Marketing teams
+            - img [ref=e755]
+          - generic [ref=e757]: love about Webflow
+        - generic [ref=e762]:
+          - generic [ref=e763]:
+            - generic [ref=e765]: Agility
+            - generic [ref=e766]:
+              - paragraph [ref=e770]: Create and launch new sites and pages on your timeline — no waiting for dev resources.
+              - generic [ref=e771]:
+                - generic [ref=e773]:
+                  - generic [ref=e774]: Build and launch web experiences without filing a ticket
+                  - generic [ref=e775]: →
+                  - link "Build and launch web experiences without filing a ticket" [ref=e777] [cursor=pointer]:
+                    - /url: /feature/design
+                    - generic [ref=e778]: Build and launch web experiences without filing a ticket
+                - generic [ref=e780]:
+                  - generic [ref=e781]: Manage content in a visual, composable CMS
+                  - generic [ref=e782]: →
+                  - link "Manage content in a visual, composable CMS" [ref=e784] [cursor=pointer]:
+                    - /url: /feature/cms
+                    - generic [ref=e785]: Manage content in a visual, composable CMS
+                - generic [ref=e787]:
+                  - generic [ref=e788]: Empower every marketer with templates and page building
+                  - generic [ref=e789]: →
+                  - link "Empower every marketer with templates and page building" [ref=e791] [cursor=pointer]:
+                    - /url: /feature/page-building
+                    - generic [ref=e792]: Empower every marketer with templates and page building
+                - generic [ref=e794]:
+                  - generic [ref=e795]: Generate production-ready apps and reusable components
+                  - generic [ref=e796]: →
+                  - link "Generate production-ready apps and reusable components" [ref=e798] [cursor=pointer]:
+                    - /url: /feature/page-building
+                    - generic [ref=e799]: Generate production-ready apps and reusable components
+                - generic [ref=e801]:
+                  - generic [ref=e802]: Cut production time with help from Webflow’s AI assistant
+                  - generic [ref=e803]: →
+                  - link "Cut production time with help from Webflow’s AI assistant" [ref=e805] [cursor=pointer]:
+                    - /url: /ai
+                    - generic [ref=e806]: Cut production time with help from Webflow’s AI assistant
+            - generic:
+              - generic:
+                - link:
+                  - /url: "#1"
+          - generic [ref=e807]:
+            - generic [ref=e809]: Impact
+            - generic [ref=e810]:
+              - paragraph [ref=e814]: Every tool you need to grow traffic, convert audiences, and prove site ROI.
+              - generic [ref=e815]:
+                - generic [ref=e817]:
+                  - generic [ref=e818]: Understand what's working with native analytics
+                  - generic [ref=e819]: →
+                  - link "Understand what's working with native analytics" [ref=e821] [cursor=pointer]:
+                    - /url: /feature/analyze
+                    - generic [ref=e822]: Understand what's working with native analytics
+                - generic [ref=e824]:
+                  - generic [ref=e825]: Optimize for conversion with AI-powered personalization
+                  - generic [ref=e826]: →
+                  - link "Optimize for conversion with AI-powered personalization" [ref=e828] [cursor=pointer]:
+                    - /url: /feature/optimize
+                    - generic [ref=e829]: Optimize for conversion with AI-powered personalization
+                - generic [ref=e831]:
+                  - generic [ref=e832]: Reach a global audience with AI-powered localization
+                  - generic [ref=e833]: →
+                  - link "Reach a global audience with AI-powered localization" [ref=e835] [cursor=pointer]:
+                    - /url: /feature/localization
+                    - generic [ref=e836]: Reach a global audience with AI-powered localization
+                - generic [ref=e838]:
+                  - generic [ref=e839]: Drive traffic from traditional search and LLMs with built-in tools for SEO and AEO
+                  - generic [ref=e840]: →
+                  - link "Drive traffic from traditional search and LLMs with built-in tools for SEO and AEO" [ref=e842] [cursor=pointer]:
+                    - /url: /feature/seo
+                    - generic [ref=e843]: Drive traffic from traditional search and LLMs with built-in tools for SEO and AEO
+            - generic:
+              - generic:
+                - link:
+                  - /url: "#2"
+          - generic [ref=e844]:
+            - generic [ref=e846]: Scale
+            - generic [ref=e847]:
+              - paragraph [ref=e851]: Give everyone on the team room to build, with guardrails that keep things on brand.
+              - generic [ref=e852]:
+                - generic [ref=e854]:
+                  - generic [ref=e855]: Collaborate in a shared workspace with marketing, design, dev, and AI agents
+                  - generic [ref=e856]: →
+                  - link "Collaborate in a shared workspace with marketing, design, dev, and AI agents" [ref=e858] [cursor=pointer]:
+                    - /url: /feature/collaboration
+                    - generic [ref=e859]: Collaborate in a shared workspace with marketing, design, dev, and AI agents
+                - generic [ref=e861]:
+                  - generic [ref=e862]: Manage changes with comments, approvals, version control, and rollback
+                  - generic [ref=e863]: →
+                  - link "Manage changes with comments, approvals, version control, and rollback" [ref=e865] [cursor=pointer]:
+                    - /url: /updates/commenting-for-workspace-members
+                    - generic [ref=e866]: Manage changes with comments, approvals, version control, and rollback
+                - generic [ref=e868]:
+                  - generic [ref=e869]: Stay on-brand with design systems and shared libraries
+                  - generic [ref=e870]: →
+                  - link "Stay on-brand with design systems and shared libraries" [ref=e872] [cursor=pointer]:
+                    - /url: /feature/shared-libraries
+                    - generic [ref=e873]: Stay on-brand with design systems and shared libraries
+            - generic:
+              - generic:
+                - link:
+                  - /url: "#3"
+    - generic [ref=e874]:
+      - generic [ref=e875]:
+        - img [ref=e880]
+        - img [ref=e881]
+        - img [ref=e882]
+        - img [ref=e883]
+        - img [ref=e884]
+        - img [ref=e885]
+        - img [ref=e886]
+      - generic [ref=e887]:
+        - generic [ref=e888]:
+          - heading "Make your website your competitive edge" [level=2] [ref=e890]
+          - paragraph [ref=e893]: Build a brand people trust and pipeline you can measure, all with one powerful platform.
+          - generic [ref=e894]:
+            - generic [ref=e896]:
+              - generic: Get started — it's free
+              - link "Get started — it's free" [ref=e897] [cursor=pointer]:
+                - /url: https://webflow.com/signup
+                - generic [ref=e898]: Get started — it's free
+            - generic [ref=e900]:
+              - generic: Talk to sales
+              - link "Talk to sales" [ref=e901] [cursor=pointer]:
+                - /url: /enterprise/contact-sales
+                - generic [ref=e902]: Talk to sales
+        - generic [ref=e903]:
+          - list [ref=e904]:
+            - listitem [ref=e905]:
+              - img "Screenshot of the homepage for Jasper AI"
+            - listitem [ref=e906]:
+              - img "Screenshot of the homepage for Aether 1"
+            - listitem [ref=e907]:
+              - img "Screenshot of the homepage for Cula"
+            - listitem [ref=e908]:
+              - img "Screenshot of the homepage for Palmer Dinnerware"
+            - listitem [ref=e909]:
+              - img "Screenshot of the homepage for Siena Film Festival"
+            - listitem [ref=e910]:
+              - img "Screenshot of the homepage for Normal Computing"
+            - listitem [ref=e911]:
+              - img "Screenshot of the homepage for Giulia Gartner"
+          - generic [ref=e912]:
+            - generic [ref=e913]:
+              - generic [ref=e914]: Jasper AI
+              - link "View website ↗" [ref=e915] [cursor=pointer]:
+                - /url: https://www.jasper.ai/
+                - generic [ref=e916]: View website
+                - generic [ref=e917]: ↗
+            - generic [ref=e918]:
+              - button "none" [ref=e919] [cursor=pointer]:
+                - generic [ref=e920]:
+                  - generic: ↑
+              - button "none" [ref=e921] [cursor=pointer]:
+                - generic [ref=e922]:
+                  - generic: ↓
+  - contentinfo [ref=e923]:
+    - generic:
+      - img
+    - generic [ref=e924]:
+      - navigation "Directory" [ref=e925]:
+        - generic [ref=e926]:
+          - generic [ref=e927]:
+            - heading "Product" [level=2] [ref=e928]
+            - list "Product" [ref=e929]:
+              - listitem [ref=e930]:
+                - link "Platform" [ref=e931] [cursor=pointer]:
+                  - /url: https://webflow.com/platform
+                  - generic [ref=e932]: Platform
+              - listitem [ref=e933]:
+                - link "Design" [ref=e934] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/design
+                  - generic [ref=e935]: Design
+              - listitem [ref=e936]:
+                - link "Edit content" [ref=e937] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/edit-content
+                  - generic [ref=e938]: Edit content
+              - listitem [ref=e939]:
+                - link "Interactions" [ref=e940] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/interactions-animations
+                  - generic [ref=e941]: Interactions
+              - listitem [ref=e942]:
+                - link "GSAP" [ref=e943] [cursor=pointer]:
+                  - /url: https://gsap.com/pricing/
+                  - generic [ref=e944]: GSAP
+              - listitem [ref=e945]:
+                - link "Page building" [ref=e946] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/page-building
+                  - generic [ref=e947]: Page building
+              - listitem [ref=e948]:
+                - link "Shared Libraries" [ref=e949] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/shared-libraries
+                  - generic [ref=e950]: Shared Libraries
+              - listitem [ref=e951]:
+                - link "Collaboration" [ref=e952] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/collaboration
+                  - generic [ref=e953]: Collaboration
+              - listitem [ref=e954]:
+                - link "CMS" [ref=e955] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/cms
+                  - generic [ref=e956]: CMS
+              - listitem [ref=e957]:
+                - link "Hosting" [ref=e958] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/hosting
+                  - generic [ref=e959]: Hosting
+              - listitem [ref=e960]:
+                - link "Localization" [ref=e961] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/localization
+                  - generic [ref=e962]: Localization
+              - listitem [ref=e963]:
+                - link "Security" [ref=e964] [cursor=pointer]:
+                  - /url: /security
+                  - generic [ref=e965]: Security
+              - listitem [ref=e966]:
+                - link "Ecommerce" [ref=e967] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/ecommerce
+                  - generic [ref=e968]: Ecommerce
+              - listitem [ref=e969]:
+                - link "Analyze" [ref=e970] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/analyze
+                  - generic [ref=e971]: Analyze
+              - listitem [ref=e972]:
+                - link "Optimize" [ref=e973] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/optimize
+                  - generic [ref=e974]: Optimize
+              - listitem [ref=e975]:
+                - link "SEO" [ref=e976] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/seo
+                  - generic [ref=e977]: SEO
+              - listitem [ref=e978]:
+                - link "AEO new" [ref=e979] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/aeo
+                  - generic [ref=e980]: AEO new
+              - listitem [ref=e981]:
+                - link "Webflow Cloud" [ref=e982] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/cloud
+                  - generic [ref=e983]: Webflow Cloud
+              - listitem [ref=e984]:
+                - link "DevLinkLabs" [ref=e985] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/devlink
+                  - generic [ref=e986]: DevLinkLabs
+              - listitem [ref=e987]:
+                - link "Figma to WebflowLabs" [ref=e988] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/figma-to-webflow
+                  - generic [ref=e989]: Figma to WebflowLabs
+              - listitem [ref=e990]:
+                - link "Accessibility" [ref=e991] [cursor=pointer]:
+                  - /url: https://webflow.com/accessibility
+                  - generic [ref=e992]: Accessibility
+              - listitem [ref=e993]:
+                - link "AI" [ref=e994] [cursor=pointer]:
+                  - /url: https://webflow.com/feature/ai
+                  - generic [ref=e995]: AI
+          - generic [ref=e996]:
+            - heading "Solutions" [level=2] [ref=e997]
+            - list "Solutions" [ref=e998]:
+              - listitem [ref=e999]:
+                - link "Enterprise" [ref=e1000] [cursor=pointer]:
+                  - /url: https://webflow.com/enterprise
+                  - generic [ref=e1001]: Enterprise
+              - listitem [ref=e1002]:
+                - link "Startups" [ref=e1003] [cursor=pointer]:
+                  - /url: https://webflow.com/solutions/startups
+                  - generic [ref=e1004]: Startups
+              - listitem [ref=e1005]:
+                - link "Global alliances" [ref=e1006] [cursor=pointer]:
+                  - /url: https://webflow.com/solutions/global-alliances
+                  - generic [ref=e1007]: Global alliances
+              - listitem [ref=e1008]:
+                - link "Agencies" [ref=e1009] [cursor=pointer]:
+                  - /url: https://webflow.com/solutions/agencies
+                  - generic [ref=e1010]: Agencies
+              - listitem [ref=e1011]:
+                - link "Freelancers" [ref=e1012] [cursor=pointer]:
+                  - /url: https://webflow.com/solutions/freelancers
+                  - generic [ref=e1013]: Freelancers
+            - heading "Resources" [level=2] [ref=e1014]
+            - list "Resources" [ref=e1015]:
+              - listitem [ref=e1016]:
+                - link "University" [ref=e1017] [cursor=pointer]:
+                  - /url: https://university.webflow.com
+                  - generic [ref=e1018]: University
+              - listitem [ref=e1019]:
+                - link "Blog" [ref=e1020] [cursor=pointer]:
+                  - /url: https://webflow.com/blog
+                  - generic [ref=e1021]: Blog
+              - listitem [ref=e1022]:
+                - link "Customer stories" [ref=e1023] [cursor=pointer]:
+                  - /url: https://webflow.com/customers
+                  - generic [ref=e1024]: Customer stories
+              - listitem [ref=e1025]:
+                - link "Webinars & ebooks" [ref=e1026] [cursor=pointer]:
+                  - /url: https://webflow.com/resources
+                  - generic [ref=e1027]: Webinars & ebooks
+              - listitem [ref=e1028]:
+                - link "Apps" [ref=e1029] [cursor=pointer]:
+                  - /url: https://webflow.com/apps
+                  - generic [ref=e1030]: Apps
+              - listitem [ref=e1031]:
+                - link "Libraries" [ref=e1032] [cursor=pointer]:
+                  - /url: https://webflow.com/libraries
+                  - generic [ref=e1033]: Libraries
+              - listitem [ref=e1034]:
+                - link "Templates" [ref=e1035] [cursor=pointer]:
+                  - /url: https://webflow.com/templates
+                  - generic [ref=e1036]: Templates
+              - listitem [ref=e1037]:
+                - link "Developers" [ref=e1038] [cursor=pointer]:
+                  - /url: https://developers.webflow.com
+                  - generic [ref=e1039]: Developers
+              - listitem [ref=e1040]:
+                - link "Made in Webflow" [ref=e1041] [cursor=pointer]:
+                  - /url: https://webflow.com/made-in-webflow
+                  - generic [ref=e1042]: Made in Webflow
+              - listitem [ref=e1043]:
+                - link "Glossary" [ref=e1044] [cursor=pointer]:
+                  - /url: https://webflow.com/glossary
+                  - generic [ref=e1045]: Glossary
+              - listitem [ref=e1046]:
+                - link "Livestreams" [ref=e1047] [cursor=pointer]:
+                  - /url: https://webflow.com/community/livestreams
+                  - generic [ref=e1048]: Livestreams
+              - listitem [ref=e1049]:
+                - link "The Webflow Way" [ref=e1050] [cursor=pointer]:
+                  - /url: https://webflow.com/webflow-way
+                  - generic [ref=e1051]: The Webflow Way
+              - listitem [ref=e1052]:
+                - link "Business Value Calculator" [ref=e1053] [cursor=pointer]:
+                  - /url: /migrate/business-value-calculator
+                  - generic [ref=e1054]: Business Value Calculator
+          - generic [ref=e1055]:
+            - heading "Company" [level=2] [ref=e1056]
+            - list "Company" [ref=e1057]:
+              - listitem [ref=e1058]:
+                - link "About" [ref=e1059] [cursor=pointer]:
+                  - /url: https://webflow.com/company/about
+                  - generic [ref=e1060]: About
+              - listitem [ref=e1061]:
+                - link "CareersWe're hiring" [ref=e1062] [cursor=pointer]:
+                  - /url: https://webflow.com/company/careers
+                  - generic [ref=e1063]: CareersWe're hiring
+              - listitem [ref=e1064]:
+                - link "Press" [ref=e1065] [cursor=pointer]:
+                  - /url: https://webflow.com/company/media
+                  - generic [ref=e1066]: Press
+              - listitem [ref=e1067]:
+                - link "Webflow Ventures" [ref=e1068] [cursor=pointer]:
+                  - /url: https://webflow.com/webflow-ventures
+                  - generic [ref=e1069]: Webflow Ventures
+              - listitem [ref=e1070]:
+                - link "Webflow Shop" [ref=e1071] [cursor=pointer]:
+                  - /url: https://shop.webflow.com
+                  - generic [ref=e1072]: Webflow Shop
+              - listitem [ref=e1073]:
+                - link "Terms of Service" [ref=e1074] [cursor=pointer]:
+                  - /url: https://webflow.com/legal/terms
+                  - generic [ref=e1075]: Terms of Service
+              - listitem [ref=e1076]:
+                - link "Privacy policy" [ref=e1077] [cursor=pointer]:
+                  - /url: https://webflow.com/legal/privacy
+                  - generic [ref=e1078]: Privacy policy
+              - listitem [ref=e1079]:
+                - link "Cookie policy" [ref=e1080] [cursor=pointer]:
+                  - /url: https://webflow.com/legal/cookie-policy
+                  - generic [ref=e1081]: Cookie policy
+              - listitem [ref=e1082]:
+                - link "Accessibility statement" [ref=e1083] [cursor=pointer]:
+                  - /url: https://webflow.com/accessibility/statement
+                  - generic [ref=e1084]: Accessibility statement
+            - heading "Compare" [level=2] [ref=e1085]
+            - list "Company" [ref=e1086]:
+              - listitem [ref=e1087]:
+                - link "Contentful" [ref=e1088] [cursor=pointer]:
+                  - /url: https://webflow.com/vs/contentful
+                  - generic [ref=e1089]: Contentful
+              - listitem [ref=e1090]:
+                - link "Framer" [ref=e1091] [cursor=pointer]:
+                  - /url: https://webflow.com/vs/framer
+                  - generic [ref=e1092]: Framer
+              - listitem [ref=e1093]:
+                - link "Sitecore" [ref=e1094] [cursor=pointer]:
+                  - /url: https://webflow.com/vs/sitecore
+                  - generic [ref=e1095]: Sitecore
+              - listitem [ref=e1096]:
+                - link "Wix" [ref=e1097] [cursor=pointer]:
+                  - /url: https://webflow.com/vs/wix
+                  - generic [ref=e1098]: Wix
+              - listitem [ref=e1099]:
+                - link "WordPress" [ref=e1100] [cursor=pointer]:
+                  - /url: https://webflow.com/vs/wordpress
+                  - generic [ref=e1101]: WordPress
+          - generic [ref=e1102]:
+            - heading "Community" [level=2] [ref=e1103]
+            - list "Community" [ref=e1104]:
+              - listitem [ref=e1105]:
+                - link "Discover the community" [ref=e1106] [cursor=pointer]:
+                  - /url: https://webflow.com/community
+                  - generic [ref=e1107]: Discover the community
+              - listitem [ref=e1108]:
+                - link "Partner with Webflow" [ref=e1109] [cursor=pointer]:
+                  - /url: https://webflow.com/solutions/partners
+                  - generic [ref=e1110]: Partner with Webflow
+              - listitem [ref=e1111]:
+                - link "Certified Partners" [ref=e1112] [cursor=pointer]:
+                  - /url: https://webflow.com/certified-partners
+                  - generic [ref=e1113]: Certified Partners
+              - listitem [ref=e1114]:
+                - link "Become a template designer" [ref=e1115] [cursor=pointer]:
+                  - /url: https://webflow.com/templates/applications
+                  - generic [ref=e1116]: Become a template designer
+              - listitem [ref=e1117]:
+                - link "Become an affiliate" [ref=e1118] [cursor=pointer]:
+                  - /url: https://webflow.com/solutions/affiliates
+                  - generic [ref=e1119]: Become an affiliate
+              - listitem [ref=e1120]:
+                - link "Become a Global Leader" [ref=e1121] [cursor=pointer]:
+                  - /url: https://webflow.com/community/become-a-global-leader
+                  - generic [ref=e1122]: Become a Global Leader
+              - listitem [ref=e1123]:
+                - link "Find a meetup near you" [ref=e1124] [cursor=pointer]:
+                  - /url: https://webflow.com/community/webflow-network-groups
+                  - generic [ref=e1125]: Find a meetup near you
+            - heading "Get help" [level=2] [ref=e1126]
+            - list "Get help" [ref=e1127]:
+              - listitem [ref=e1128]:
+                - link "Support" [ref=e1129] [cursor=pointer]:
+                  - /url: https://help.webflow.com/
+                  - generic [ref=e1130]: Support
+              - listitem [ref=e1131]:
+                - link "Pricing" [ref=e1132] [cursor=pointer]:
+                  - /url: https://webflow.com/pricing
+                  - generic [ref=e1133]: Pricing
+              - listitem [ref=e1134]:
+                - link "Status" [ref=e1135] [cursor=pointer]:
+                  - /url: https://status.webflow.com/
+                  - generic [ref=e1136]: Status
+              - listitem [ref=e1137]:
+                - link "Community Homebase" [ref=e1138] [cursor=pointer]:
+                  - /url: https://community.webflow.com/
+                  - generic [ref=e1139]: Community Homebase
+              - listitem [ref=e1140]:
+                - link "Wishlist" [ref=e1141] [cursor=pointer]:
+                  - /url: https://wishlist.webflow.com/
+                  - generic [ref=e1142]: Wishlist
+      - generic [ref=e1144]:
+        - generic [ref=e1145]:
+          - generic [ref=e1146]: © 2026 Webflow, Inc. All rights reserved
+          - list [ref=e1148]:
+            - listitem [ref=e1149]:
+              - link "Made in Webflow" [ref=e1150] [cursor=pointer]:
+                - /url: https://webflow.com/discover/popular#recent
+                - img "Made in Webflow" [ref=e1152]
+            - listitem [ref=e1154]:
+              - link "Webflow's YouTube channel" [ref=e1155] [cursor=pointer]:
+                - /url: https://www.youtube.com/webflow
+                - img "YouTube" [ref=e1157]
+            - listitem [ref=e1159]:
+              - link "Webflow's Twitter account" [ref=e1160] [cursor=pointer]:
+                - /url: https://x.com/webflow
+                - img "X" [ref=e1162]
+            - listitem [ref=e1164]:
+              - link "Webflow's Facebook page" [ref=e1165] [cursor=pointer]:
+                - /url: https://www.facebook.com/webflow/
+                - img "Facebook" [ref=e1167]
+            - listitem [ref=e1169]:
+              - link "Webflow's Linkedin page" [ref=e1170] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/webflow-inc-
+                - img "Linkedin" [ref=e1172]
+            - listitem [ref=e1174]:
+              - link "Webflow's Instagram page" [ref=e1175] [cursor=pointer]:
+                - /url: https://www.instagram.com/webflow/
+                - img "Instagram" [ref=e1177]
+            - listitem [ref=e1181]:
+              - link "Webflow's TikTok" [ref=e1182] [cursor=pointer]:
+                - /url: https://www.tiktok.com/@webflow
+                - img "TikTok" [ref=e1184]
+        - link [ref=e1190] [cursor=pointer]:
+          - /url: https://webflow.com/?r=0
+          - generic [ref=e1191]: Webflow's homepage
+      - link "Made in Webflow" [ref=e1192] [cursor=pointer]:
+        - /url: https://webflow.com/
+        - img [ref=e1193]
+        - generic [ref=e1196]: Made in Webflow

@@ -1,0 +1,78 @@
+[    3548ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[    3736ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ https://va.vercel-scripts.com/v1/script.debug.js:0
+[    3737ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 1.5.0, ts: 1776811921307} /_vercel/insights/view @ https://va.vercel-scripts.com/v1/script.debug.js:0
+[  132823ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  133043ms] [ERROR] ./app/components/Projects.tsx
+Error: 
+  x Expression expected
+    ,-[/Users/joshuavallabhaneni/conductor/workspaces/portfolio/denpasar/app/components/Projects.tsx:69:1]
+ 69 |   const indexLabel = String(index + 1).padStart(2, "0");
+ 70 | 
+ 71 |   return (
+ 72 |     <>
+    :      ^
+ 73 |       <motion.button
+ 74 |         type="button"
+ 75 |         onClick={() => setIsExpanded(true)}
+    `----
+
+  x Expected ',', got '{'
+     ,-[/Users/joshuavallabhaneni/conductor/workspaces/portfolio/denpasar/app/components/Projects.tsx:112:1]
+ 112 |         </div>
+ 113 |       </motion.button>
+ 114 | 
+ 115 |       {isExpanded &&
+     :       ^
+ 116 |         typeof window !== "undefined" &&
+ 117 |         createPortal(
+ 118 |           <>
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/components/Projects.tsx
+./app/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  137557ms] [ERROR] ./app/components/Projects.tsx
+Error: 
+  x Expression expected
+    ,-[/Users/joshuavallabhaneni/conductor/workspaces/portfolio/denpasar/app/components/Projects.tsx:69:1]
+ 69 |   const indexLabel = String(index + 1).padStart(2, "0");
+ 70 | 
+ 71 |   return (
+ 72 |     <>
+    :      ^
+ 73 |       <motion.button
+ 74 |         type="button"
+ 75 |         onClick={() => setIsExpanded(true)}
+    `----
+
+  x Expected ',', got '{'
+     ,-[/Users/joshuavallabhaneni/conductor/workspaces/portfolio/denpasar/app/components/Projects.tsx:112:1]
+ 112 |         </div>
+ 113 |       </motion.button>
+ 114 | 
+ 115 |       {isExpanded &&
+     :       ^
+ 116 |         typeof window !== "undefined" &&
+ 117 |         createPortal(
+ 118 |           <>
+     `----
+
+Caused by:
+    Syntax Error
+
+Import trace for requested module:
+./app/components/Projects.tsx
+./app/page.tsx @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/app-index.js:32
+[  137731ms] [LOG] [Fast Refresh] done in 4909ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  142623ms] [LOG] [Fast Refresh] rebuilding @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:186
+[  142859ms] [LOG] [Fast Refresh] done in 236ms @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/client/components/react-dev-overlay/app/hot-reloader-client.js:43
+[  146700ms] [INFO] %cDownload the React DevTools for a better development experience: https://reactjs.org/link/react-devtools font-weight:bold @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/compiled/react-dom/cjs/react-dom.development.js:38559
+[  146814ms] [LOG] %c[Vercel Web Analytics]%c Debug mode is enabled by default in development. No requests will be sent to the server. color: rgb(120, 120, 120) color: inherit @ https://va.vercel-scripts.com/v1/script.debug.js:0
+[  146814ms] [LOG] %c[Vercel Web Analytics]%c [view] http://localhost:3000/ color: rgb(120, 120, 120) color: inherit {o: http://localhost:3000/, sv: 0.1.3, sdkn: @vercel/analytics/react, sdkv: 1.5.0, ts: 1776812064385} /_vercel/insights/view @ https://va.vercel-scripts.com/v1/script.debug.js:0
+[  147445ms] [WARNING] Image with src "/eduplanner.png" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
+Read more: https://nextjs.org/docs/api-reference/next/image#priority @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15
+[  158946ms] [WARNING] Image with src "/codeshot.png" was detected as the Largest Contentful Paint (LCP). Please add the "priority" property if this image is above the fold.
+Read more: https://nextjs.org/docs/api-reference/next/image#priority @ webpack-internal:///(app-pages-browser)/./node_modules/next/dist/shared/lib/utils/warn-once.js:15

@@ -1,27 +1,28 @@
-"use client"
+"use client";
 
-import type React from "react"
-import { useState, useRef, useEffect } from "react"
-import { createPortal } from "react-dom"
-
-import { motion } from "framer-motion"
-import { Github, Youtube, FileText, Newspaper, Twitter, ExternalLink } from "lucide-react"
-import Image from "next/image"
-import Link from "next/link"
-import AnimatedSectionHeader from "./AnimatedSectionHeader"
+import type React from "react";
+import { useState, useRef, useEffect } from "react";
+import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
+import { Github, Youtube, FileText, Newspaper, Twitter, ExternalLink, X, ArrowUpRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import AnimatedSectionHeader from "./AnimatedSectionHeader";
+import { SectionProgressHairline } from "./motion/SectionProgressHairline";
 
 interface ProjectCardProps {
-  title: string
-  description: string
-  image: string
-  githubLink: string
-  youtubeLink?: string
-  tags: string[]
-  date: string
-  award?: string | string[]
-  additionalLinks?: Array<{ text: string; url: string; icon: React.ReactNode }>
-  newsLinks?: Array<{ text: string; url: string }>
-  id: string // Added unique ID for each project
+  title: string;
+  description: string;
+  image: string;
+  githubLink: string;
+  youtubeLink?: string;
+  tags: string[];
+  date: string;
+  award?: string | string[];
+  additionalLinks?: Array<{ text: string; url: string; icon: React.ReactNode }>;
+  newsLinks?: Array<{ text: string; url: string }>;
+  id: string;
+  index: number;
 }
 
 function ProjectCard({
@@ -35,402 +36,411 @@ function ProjectCard({
   award,
   additionalLinks,
   newsLinks,
-  id, // Used as key in the parent component
+  id,
+  index,
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const modalRef = useRef<HTMLDivElement>(null);
 
-  // Refs for the collapsed card **and** the modal content
-  const cardRef = useRef<HTMLDivElement>(null)
-  const modalRef = useRef<HTMLDivElement>(null)
-
-  // Handle outside-clicks **only when** the modal is open. We use the
-  // modalRef to ensure clicks inside the expanded view don't immediately
-  // close it.
   useEffect(() => {
-    if (!isExpanded) return
-
+    if (!isExpanded) return;
     const handleClickOutside = (event: MouseEvent) => {
       if (modalRef.current && !modalRef.current.contains(event.target as Node)) {
-        setIsExpanded(false)
+        setIsExpanded(false);
       }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [isExpanded])
-
-  // Prevent body scrolling when modal is open
-  useEffect(() => {
-    if (isExpanded) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+    };
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsExpanded(false);
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
     return () => {
-      document.body.style.overflow = '';
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
     };
   }, [isExpanded]);
 
-  return (
-    <div className="relative group" ref={cardRef} id={`project-${id}`}>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="modern-card hover:shadow-2xl group-hover:shadow-primary/10 transition-all duration-500 cursor-pointer overflow-hidden h-full flex flex-col"
-        onClick={() => setIsExpanded(true)}
-        whileHover={{ y: -5 }}
-      >
-        <div className="relative aspect-video overflow-hidden">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          
-          {/* Hover overlay */}
-          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="modern-button-primary px-4 py-2 text-sm rounded-lg">
-              <ExternalLink className="w-4 h-4 mr-2" />
-              View Details
-            </div>
-          </div>
-        </div>
-        
-        <div className="p-4 relative flex-1 flex flex-col justify-between">
-          <div>
-            <div className="mb-2">
-              <h3 className="font-semibold text-lg text-foreground group-hover:text-primary transition-colors duration-300">
-                {title}
-              </h3>
-            </div>
-            
-            <div className="text-xs text-muted-foreground">
-              {date}
-            </div>
-          </div>
-          
-          {/* Award badge */}
-          {award && (
-            <div className="absolute bottom-2 right-2 w-6 h-6 bg-amber-500/20 rounded-full flex items-center justify-center">
-              <span className="text-amber-600 dark:text-amber-400 text-sm">🏆</span>
-            </div>
-          )}
-        </div>
-      </motion.div>
+  useEffect(() => {
+    document.body.style.overflow = isExpanded ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isExpanded]);
 
-      {/* Modal/Dialog for expanded content rendered via portal */}
+  const indexLabel = String(index + 1).padStart(2, "0");
+
+  const cardChrome = (
+    <>
+      <div className="relative aspect-[4/3] overflow-hidden bg-muted rounded-md">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+          className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+        />
+        <div className="absolute inset-0 ring-1 ring-inset ring-border/60 rounded-md pointer-events-none" />
+        {award && (
+          <div className="absolute top-3 right-3">
+            <span className="inline-block rounded-full bg-black/60 px-2.5 py-1 text-[11px] font-mono uppercase tracking-wider text-white backdrop-blur-sm">
+              Award
+            </span>
+          </div>
+        )}
+        <div className="absolute inset-0 bg-background/0 group-hover:bg-background/5 transition-colors duration-500" />
+        <div className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+          <div className="inline-flex items-center gap-1 rounded-full bg-black/60 px-2.5 py-1 text-xs font-medium text-white backdrop-blur-sm">
+            <span>View</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </div>
+        </div>
+      </div>
+      <div className="mt-4 flex items-start justify-between gap-6">
+        <div className="min-w-0">
+          <h3 className="text-base md:text-lg font-medium text-foreground truncate">{title}</h3>
+          <p className="mt-1 text-sm text-muted-foreground line-clamp-1">
+            {tags.slice(0, 3).join(" · ")}
+          </p>
+        </div>
+        <span className="text-xs text-muted-foreground whitespace-nowrap mt-1">{date}</span>
+      </div>
+    </>
+  );
+
+  const motionProps = {
+    initial: { opacity: 0, y: 16 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, amount: 0.2 },
+    transition: { duration: 0.6, delay: (index % 4) * 0.06, ease: [0.22, 1, 0.36, 1] as const },
+    className: "group block w-full text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-foreground/40 rounded-sm",
+    id: `project-${id}`,
+  };
+
+  return (
+    <>
+      <motion.button
+        type="button"
+        onClick={() => setIsExpanded(true)}
+        {...motionProps}
+      >
+        {cardChrome}
+      </motion.button>
+
       {isExpanded &&
         typeof window !== "undefined" &&
         createPortal(
           <>
-            <div className="modal-backdrop bg-black/80 backdrop-blur-sm" onClick={() => setIsExpanded(false)} />
-            <div
+            <motion.div
+              className="modal-backdrop bg-background/80 backdrop-blur-md"
+              onClick={() => setIsExpanded(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+            />
+            <div className="modal-content inset-0 flex items-center justify-center px-4 md:px-8 py-6 pointer-events-none">
+            <motion.div
               ref={modalRef}
-              className="modal-content inset-x-4 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl max-h-[90vh] overflow-y-auto modern-card animate-fadeIn"
+              className="relative w-full max-w-5xl max-h-[88vh] overflow-y-auto bg-card border border-border rounded-lg pointer-events-auto"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="p-8">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-3xl font-bold gradient-text">{title}</h2>
-                  <button 
-                    onClick={() => setIsExpanded(false)}
-                    className="modern-button-ghost p-2 rounded-xl"
-                    aria-label="Close details"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
+              <div className="relative aspect-[16/9] md:aspect-[2/1] overflow-hidden">
+                <Image src={image} alt={title} fill sizes="100vw" className="object-cover" />
+                <button
+                  onClick={() => setIsExpanded(false)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-background/80 backdrop-blur border border-border hover:bg-background transition-colors"
+                  aria-label="Close details"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              <div className="p-6 md:p-10">
+                <div className="flex flex-wrap items-baseline justify-between gap-3 mb-6">
+                  <div>
+                    <p className="eyebrow mb-2">Project · {indexLabel}</p>
+                    <h2 className="display text-3xl md:text-5xl text-foreground">{title}</h2>
+                  </div>
+                  <div className="text-sm text-muted-foreground">{date}</div>
                 </div>
-                
-                <div className="relative aspect-video mb-6 rounded-xl overflow-hidden">
-                  <Image
-                    src={image}
-                    alt={title}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                
-                <div className="grid md:grid-cols-3 gap-6 mb-6">
-                  <div className="md:col-span-2">
-                    <p className="text-muted-foreground mb-4 leading-relaxed">
-                      {description}
-                    </p>
+
+                <div className="grid md:grid-cols-5 gap-8 md:gap-12">
+                  <div className="md:col-span-3">
+                    <p className="text-base leading-relaxed text-foreground/90">{description}</p>
+
                     {award && (
-                      <div className="mb-4">
-                        {Array.isArray(award) ? (
-                          award.map((a, index) => (
-                            <div key={index} className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-medium mb-2 mr-2">
-                              <span>🏆</span>
-                              <span>{a}</span>
-                            </div>
-                          ))
-                        ) : (
-                          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500/10 text-amber-600 dark:text-amber-400 text-sm font-medium">
-                            <span>🏆</span>
-                            <span>{award}</span>
+                      <div className="mt-6 space-y-2">
+                        {(Array.isArray(award) ? award : [award]).map((a, i) => (
+                          <div key={i} className="inline-flex items-center gap-2 text-sm font-medium border border-border px-3 py-1 rounded-full mr-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-foreground" />
+                            {a}
                           </div>
-                        )}
+                        ))}
                       </div>
                     )}
                   </div>
-                  
-                  <div>
-                    <div className="modern-card p-4">
-                      <h3 className="font-semibold mb-3 text-sm uppercase tracking-wide text-muted-foreground">Project Info</h3>
-                      <div className="space-y-3 text-sm">
-                        <div>
-                          <span className="text-muted-foreground">Date:</span>
-                          <span className="ml-2 font-medium">{date}</span>
-                        </div>
+
+                  <div className="md:col-span-2 space-y-6">
+                    <div>
+                      <div className="eyebrow mb-3">Stack</div>
+                      <div className="flex flex-wrap gap-2">
+                        {tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-xs text-muted-foreground border border-border rounded-full px-2.5 py-1"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div>
+                      <div className="eyebrow mb-3">Links</div>
+                      <div className="flex flex-col gap-2">
+                        {githubLink !== "#" && (
+                          <Link
+                            href={githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center justify-between gap-3 text-sm border-b border-border pb-2"
+                          >
+                            <span className="flex items-center gap-2">
+                              <Github className="h-3.5 w-3.5" />
+                              GitHub
+                            </span>
+                            <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                          </Link>
+                        )}
+                        {youtubeLink && (
+                          <Link
+                            href={youtubeLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center justify-between gap-3 text-sm border-b border-border pb-2"
+                          >
+                            <span className="flex items-center gap-2">
+                              <Youtube className="h-3.5 w-3.5" />
+                              Demo video
+                            </span>
+                            <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                          </Link>
+                        )}
+                        {additionalLinks?.map((link, i) => (
+                          <Link
+                            key={i}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center justify-between gap-3 text-sm border-b border-border pb-2"
+                          >
+                            <span className="flex items-center gap-2">{link.icon}{link.text}</span>
+                            <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                          </Link>
+                        ))}
+                        {newsLinks?.map((link, i) => (
+                          <Link
+                            key={i}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group inline-flex items-center justify-between gap-3 text-sm border-b border-border pb-2"
+                          >
+                            <span className="flex items-center gap-2">
+                              <Newspaper className="h-3.5 w-3.5" />
+                              {link.text}
+                            </span>
+                            <ArrowUpRight className="h-3.5 w-3.5 text-muted-foreground group-hover:text-foreground transition-colors" />
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="inline-flex items-center px-3 py-1.5 rounded-full text-sm font-medium bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex flex-wrap gap-3">
-                  {githubLink !== "#" && (
-                    <Link
-                      href={githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="modern-button-secondary px-4 py-2 rounded-lg"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      GitHub
-                    </Link>
-                  )}
-                  {youtubeLink && (
-                    <Link
-                      href={youtubeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="modern-button-ghost px-4 py-2 rounded-lg border border-border"
-                    >
-                      <Youtube className="h-4 w-4 mr-2" />
-                      Demo
-                    </Link>
-                  )}
-                  {additionalLinks?.map((link, index) => (
-                    <Link
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="modern-button-ghost px-4 py-2 rounded-lg border border-border"
-                    >
-                      {link.icon}
-                      <span className="ml-2">{link.text}</span>
-                    </Link>
-                  ))}
-                  {newsLinks?.map((link, index) => (
-                    <Link
-                      key={index}
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="modern-button-ghost px-4 py-2 rounded-lg border border-border"
-                    >
-                      <Newspaper className="h-4 w-4 mr-2" />
-                      {link.text}
-                    </Link>
-                  ))}
-                </div>
               </div>
+            </motion.div>
             </div>
           </>,
           document.body
         )}
-    </div>
-  )
+    </>
+  );
 }
 
 export default function Projects() {
+  const sectionRef = useRef<HTMLElement>(null);
   const projects = [
     {
-      title: "EduPlanner: LLM-Powered Career Scheduling Engine",
+      title: "EduPlanner",
       description:
-        "Building an AI-powered career scheduling engine that creates personalized four-year academic roadmaps for over 1,300 students. The system intelligently connects coursework with extracurricular activities across different career paths and suggests alternatives when students need to adjust their plans. It makes academic planning much easier by giving students smart, data-driven recommendations to help them make the most of their education and prepare for their careers.",
+        "An AI-powered career scheduling engine that creates personalized four-year academic roadmaps for over 1,300 students. The system intelligently connects coursework with extracurricular activities across different career paths and suggests alternatives when students need to adjust their plans.",
       image: "/eduplanner.png",
       githubLink: "#",
       tags: ["React", "Vite", "PostgreSQL", "OpenRouter"],
-      date: "June 2025 - Present",
+      date: "2025",
       id: "eduplanner",
     },
     {
-      title: "SwitchConfigSim: Network Switch Management Interface",
+      title: "SwitchConfigSim",
       description:
-        "Built a comprehensive network switch management interface that mirrors enterprise-grade infrastructure patterns. The system provides dual interfaces (CLI and REST API) that both execute identical backend automation scripts, enabling hands-on experience with network device management workflows.",
-      image: "/switchconfig.png", 
+        "A comprehensive network switch management interface that mirrors enterprise-grade infrastructure patterns. Dual interfaces (CLI and REST API) both execute identical backend automation scripts, enabling hands-on experience with network device management workflows.",
+      image: "/switchconfig.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/SwitchConfigSim",
       youtubeLink: "https://youtu.be/GsN7T22HNzc",
-      tags: ["Go", "Shell Scripting", "REST APIs", "OpenAPI", "Linux GNU Tools", "Makefile"],
-      date: "June 2025 - July 2025",
+      tags: ["Go", "Shell", "REST APIs", "OpenAPI", "Linux", "Makefile"],
+      date: "2025",
       id: "switchconfigsim",
     },
     {
-      title: "EcoQuery: Digital Carbon Footprint Extension",
+      title: "EcoQuery",
       description:
-        "Built a chrome extension that empowers users to make environmentally conscious decisions about their digital queries. The system intercepts ChatGPT queries in real-time, analyzes environmental impact using research-backed calculations, and provides instant comparisons with Google Search alternatives, enabling informed choices about digital carbon footprint.",
+        "A Chrome extension that empowers users to make environmentally conscious decisions about their digital queries. Intercepts ChatGPT queries in real-time, analyzes environmental impact using research-backed calculations, and provides instant comparisons with Google Search alternatives.",
       image: "/ecoquery.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/Eco-Query-Extension",
-      tags: ["Chrome Extension", "JavaScript (Vanilla)", "HTML/CSS"],
-      date: "November 2024 - June 2025",
+      tags: ["Chrome Extension", "JavaScript", "HTML/CSS"],
+      date: "2024 – 2025",
       additionalLinks: [
         {
-          text: "Chrome Store",
+          text: "Chrome Web Store",
           url: "https://chromewebstore.google.com/detail/mcbcdggkligdjpcdpijnmiknbhmcefjl?utm_source=item-share-cb",
-          icon: <ExternalLink className="h-4 w-4" />,
+          icon: <ExternalLink className="h-3.5 w-3.5" />,
         },
       ],
       id: "ecoquery",
     },
     {
-      title: "CodeShot: Pixel-Perfect AI Frontend Engineer",
+      title: "CodeShot",
       description:
-        "Built a system that converts design mockups into production-ready code. Combines CV, RL, and agent-based reasoning to explore code variants and evaluate them via a custom similarity metric. Leveraged NVIDIA H100s on CoreWeave to cut rendering time from 20 -> 5 minutes, outperforming v0 and bolt by 5% in visual similarity.",
+        "A system that converts design mockups into production-ready code. Combines CV, RL, and agent-based reasoning to explore code variants and evaluate them via a custom similarity metric. Leveraged NVIDIA H100s on CoreWeave to cut rendering time from 20 → 5 minutes, outperforming v0 and bolt by 5% in visual similarity.",
       image: "/codeshot.png",
       githubLink: "#",
       tags: ["Python", "OpenCV", "PyTorch", "LangChain", "React", "FastAPI", "Docker"],
-      date: "Feb 2025 - April 2025",
-      award: "2nd Place Overall at Inference-Time Compute Hackathon",
+      date: "2025",
+      award: "2nd Place — Inference-Time Compute Hackathon",
       additionalLinks: [
         {
-          text: "X Post",
+          text: "X announcement",
           url: "https://x.com/cognition_labs/status/1896737373872103692",
-          icon: <Twitter className="h-4 w-4" />,
+          icon: <Twitter className="h-3.5 w-3.5" />,
         },
       ],
       youtubeLink: "https://www.youtube.com/watch?v=ib1SBuyamSY",
       id: "codeshot",
     },
     {
-      title: "QuRE: Query Routing Engine",
+      title: "QuRE",
       description:
-        "Built a smart routing system that optimizes LLM API usage for businesses/users. The product analyzes incoming prompts, predicts response complexity and length for different LLM models, and automatically routes queries to the most cost-effective model while maintaining output quality.",
+        "A smart routing system that optimizes LLM API usage for businesses and users. Analyzes incoming prompts, predicts response complexity and length for different LLM models, and automatically routes queries to the most cost-effective model while maintaining output quality.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7sb4ZVKsvMCha6Os6Dcs0iym0CG6NG.png",
       githubLink: "https://github.com/thobonato/azalea-ai-ml",
       youtubeLink: "https://www.youtube.com/watch?v=OSJig11XJxE&t=1s",
-      tags: ["Python", "JavaScript", "React", "Node.js", "FastAPI", "MongoDB"],
-      date: "June 2024 - Present",
-      award: "First Place Overall at AI for Change Hackathon",
+      tags: ["Python", "React", "Node.js", "FastAPI", "MongoDB"],
+      date: "2024",
+      award: "1st Place — AI for Change Hackathon",
       id: "qure",
       additionalLinks: [
         {
-          text: "Website",
+          text: "qure.dev",
           url: "https://www.qure.dev/",
-          icon: <ExternalLink className="h-4 w-4" />,
+          icon: <ExternalLink className="h-3.5 w-3.5" />,
         },
       ],
     },
     {
-      title: "FireSync: AI-Powered Disaster Recovery Platform",
+      title: "FireSync",
       description:
-        "Developed a next-generation disaster recovery platform that empowers wildfire-stricken communities to rebuild faster and smarter. FireSync uses AI for intelligent volunteer-task matching, real-time coordination, and impact tracking.",
+        "A next-generation disaster recovery platform that empowers wildfire-stricken communities to rebuild faster and smarter. Uses AI for intelligent volunteer-task matching, real-time coordination, and impact tracking.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/firesync-jb0vNaeaWJxdwrGgKcOLTvbTKixDl7.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/Wildfire",
       youtubeLink: "https://www.youtube.com/watch?v=hF7xo23Fj6g",
-      tags: ["React", "Node.js", "Express.js", "Storybook", "MongoDB Atlas", "RAG"],
-      date: "January 2024",
+      tags: ["React", "Node.js", "Express", "MongoDB", "RAG"],
+      date: "2024",
       id: "firesync",
     },
     {
-      title: "Ignite: ML-Driven Nonprofit Matching Engine",
+      title: "Ignite",
       description:
-        "Engineered full-stack web app using React, Flask, MongoDB featuring custom-made automated matching algorithm, Google/LinkedIn API, NLP-based mission alignment scoring, and email automation.",
+        "A full-stack web app with a custom automated matching algorithm, Google/LinkedIn API integrations, NLP-based mission alignment scoring, and email automation connecting students with nonprofits.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-0EVZVGMPSbFomDLwGqMNH83zaCbJ7B.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/cypress-penn-apps",
       youtubeLink: "https://youtu.be/RGob0Xzvbho?si=x9KLLtSYsgQAysC5",
-      tags: ["Python", "JavaScript", "React", "Flask", "MongoDB"],
-      date: "October 2024",
-      award: "1st Place Winner at JP Morgan's Code for Good Hackathon",
+      tags: ["Python", "React", "Flask", "MongoDB"],
+      date: "2024",
+      award: "1st Place — JP Morgan Code for Good",
       id: "ignite",
     },
     {
-      title: "CypressMFA: Gesture-Driven Facial Authentication",
+      title: "CypressMFA",
       description:
-        "Engineered a Chrome extension for 3FA using Python, FastAPI, and MongoDB Atlas, incorporating real-time liveness detection, facial recognition, and dynamic hand gesture recognition.",
+        "A Chrome extension for 3-factor authentication using Python, FastAPI, and MongoDB Atlas. Real-time liveness detection, facial recognition, and dynamic hand-gesture recognition.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/cypress-P2aTSvrBkHcdQRhE2cR3V0zMDUyEVn.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/cypress-penn-apps",
       youtubeLink: "https://youtu.be/RGob0Xzvbho?si=x9KLLtSYsgQAysC5",
-      tags: ["Chrome Extension", "Python", "JavaScript", "React", "Node.js", "FastAPI", "MongoDB"],
-      date: "September 2024 - October 2024",
+      tags: ["Chrome Extension", "Python", "React", "FastAPI", "MongoDB"],
+      date: "2024",
       award: [
-        "2nd Place Best Privacy/Security Hack",
-        "2nd Place Best Use of Computer Vision at PennApps XXV Hackathon",
+        "2nd Place — Best Privacy/Security Hack, PennApps XXV",
+        "2nd Place — Best Use of Computer Vision, PennApps XXV",
       ],
       id: "cypressmfa",
     },
     {
-      title: "SkyCast: Flight Delay Predictor",
+      title: "SkyCast",
       description:
-        "Developed a Flask-based application that harnesses the Open-Meteo API to predict flight delays by analyzing 5 real-time weather metrics. Engineered a RandomForestRegressor model using pandas and scikit-learn.",
+        "A Flask-based application harnessing the Open-Meteo API to predict flight delays by analyzing 5 real-time weather metrics. RandomForestRegressor model built with pandas and scikit-learn.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/SkyCast-CmhbsjfuZMGgH7SAQsK2Mv0eKVWUEy.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/SkyCast",
-      tags: ["Python", "JavaScript", "React", "Flask", "MySQL"],
-      date: "April 2024 - June 2024",
+      tags: ["Python", "React", "Flask", "MySQL"],
+      date: "2024",
       id: "skycast",
     },
     {
-      title: "Drug Efficacy Analysis and Prediction Tool",
+      title: "Drug Efficacy Prediction",
       description:
-        "Employed JDBC to connect to a MySQL database and utilized SQL queries to analyze the efficacy of the drug Tagrisso. Executed OLS Multiple Linear Regression using Apache Commons Math for model training and predictive analytics.",
+        "JDBC + MySQL analysis of the efficacy of Tagrisso. OLS Multiple Linear Regression using Apache Commons Math for model training and predictive analytics.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/drugefficacy-pJJYtJobIHkdTFrWyjUz4qeYBFRzE8.png",
       githubLink: "https://github.com/Joshua-Vallabhaneni/EfficacyPredictionModel",
       tags: ["Java", "JDBC", "Apache Commons Math", "MySQL"],
-      date: "December 2024 - January 2024",
+      date: "2023 – 2024",
       id: "drugefficacy",
     },
     {
-      title: "Vital Smart: IoT based In-Home Health Monitoring System",
+      title: "Vital Smart",
       description:
-        "Developed a system for measuring multiple vitals, storing results, and displaying them in real-time through a web portal and mobile application. Features a custom-built AI-based advice engine for basic health diagnostics.",
+        "An IoT-based in-home health monitoring system measuring multiple vitals, storing results, and displaying them in real-time through a web portal and mobile app. Custom AI-based advice engine for basic health diagnostics.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/VitalSmart-4s5ZxC4I9d3apCVHNKHE53Pwe5Q3aW.png",
       githubLink: "#",
       tags: ["Arduino", "C++", "Firebase", "Twilio", "IoT"],
-      date: "June 2021 - August 2023",
+      date: "2021 – 2023",
       additionalLinks: [
         {
-          text: "Project Report",
+          text: "Project report",
           url: "https://drive.google.com/file/d/1Mhg4poBOvAkDqOvZpnrxnzWYlUmmDE7G/view?usp=sharing",
-          icon: <FileText className="h-4 w-4" />,
+          icon: <FileText className="h-3.5 w-3.5" />,
         },
       ],
       id: "vitalsmart",
     },
     {
-      title: "Clevr - Peer Tutoring Learning Management System",
+      title: "Clevr",
       description:
-        "Created an automated matchmaking software that has efficiently connected over 700 users. Employs algorithmic techniques via Google Apps Script to foster resident learning hubs hands-free.",
+        "Automated peer tutoring matchmaking software that has efficiently connected over 700 users. Employs algorithmic techniques via Google Apps Script to foster resident learning hubs hands-free.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/clevr-1nwpq68nsaOGstF6YEasuJyfc58eTu.png",
       githubLink: "https://github.com/Clevr-LMS",
       tags: ["JavaScript", "Google Apps Script"],
-      date: "May 2020 - June 2023",
+      date: "2020 – 2023",
       id: "clevr",
     },
     {
-      title: "Baby Saver - Hot Car Alert Device",
+      title: "Baby Saver",
       description:
-        "Developed a device to prevent hot car child deaths by detecting a baby in a car seat and sending automated alerts when the car's temperature crosses certain thresholds. Features a multi-level alert system.",
+        "A device to prevent hot-car child deaths by detecting a baby in a car seat and sending automated alerts when the car's temperature crosses certain thresholds. Multi-level alert system.",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/babysaver-GWpcK23wCCzoNBJXDHzXCfppxTOc6L.png",
       githubLink: "#",
       tags: ["Arduino", "C++", "IoT"],
-      date: "September 2018 - August 2020",
+      date: "2018 – 2020",
       newsLinks: [
         {
           text: "Philadelphia Inquirer",
@@ -443,30 +453,29 @@ export default function Projects() {
       ],
       id: "babysaver",
     },
-  ]
+  ];
 
   return (
-    <section
-      id="projects"
-      className="py-24 bg-background relative overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.02] dark:opacity-[0.03]">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+    <section ref={sectionRef} id="work" className="relative py-24 md:py-40">
+      <SectionProgressHairline sectionRef={sectionRef} />
+      <div className="container-editorial">
+        <AnimatedSectionHeader
+          eyebrow="Selected work"
+          title="Things I've built."
+        />
       </div>
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-emerald-500/5" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <AnimatedSectionHeader title="Featured Projects" />
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6 relative auto-rows-fr">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
+      <div className="mt-4 md:mt-8 overflow-x-auto snap-x snap-mandatory scroll-px-6 md:scroll-px-12 px-6 md:px-12 pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div className="flex gap-x-6 md:gap-x-8">
+          {projects.map((project, i) => (
+            <div
+              key={project.id}
+              className="snap-start flex-none w-[82%] sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-4rem)/3)]"
+            >
+              <ProjectCard {...project} index={i} />
+            </div>
           ))}
         </div>
       </div>
     </section>
-  )
+  );
 }
-

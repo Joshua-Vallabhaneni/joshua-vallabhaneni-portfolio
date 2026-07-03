@@ -1,0 +1,7 @@
+[     311ms] [WARNING] The AudioContext was not allowed to start. It must be resumed (or created) after a user gesture on the page. https://developer.chrome.com/blog/autoplay/#web_audio @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:7778
+[     372ms] [LOG] onRouterPage:  HOME [] @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:22073
+[    5094ms] [TIMEEND] OBJLoader: 6.656005859375 ms @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:122926
+[    5094ms] [LOG] THREE.WebGLRenderer 84 @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:97474
+[    5109ms] [LOG] onRouterPage:  HOME [] @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:22073
+[    5114ms] [LOG] show initial @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:124343
+[    5174ms] [WARNING] THREE.WebGLRenderer.setTexture2D: don't use render targets as textures. Use their .texture property instead. @ https://resn.co.nz/20260423030649_1_0_8475ced/js/main_desktop_extended.js:99966

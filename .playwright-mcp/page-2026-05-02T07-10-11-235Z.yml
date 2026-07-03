@@ -1,0 +1,78 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Joshua Vallabhaneni" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+      - navigation [ref=e5]:
+        - link "Work" [ref=e6] [cursor=pointer]:
+          - /url: "#work"
+        - link "Experience" [ref=e7] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Education" [ref=e8] [cursor=pointer]:
+          - /url: "#education"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Get in touch" [ref=e10] [cursor=pointer]:
+        - /url: mailto:pjvallabhaneni@gmail.com
+  - main [ref=e11]:
+    - article [ref=e12]:
+      - link "Back to work" [ref=e14] [cursor=pointer]:
+        - /url: /#work
+        - img [ref=e15]
+        - text: Back to work
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: 2025 · Inference-Time Compute Hackathon · 2nd Place
+        - heading "CodeShot" [level=1] [ref=e19]:
+          - generic "CodeShot" [ref=e20]:
+            - generic [ref=e22]:
+              - generic [ref=e23]: C
+              - generic [ref=e24]: o
+              - generic [ref=e25]: d
+              - generic [ref=e26]: e
+              - generic [ref=e27]: S
+              - generic [ref=e28]: h
+              - generic [ref=e29]: o
+              - generic [ref=e30]: t
+        - paragraph [ref=e31]: A system that converts design mockups into production-ready code by combining computer vision, reinforcement learning, and agent-based reasoning to explore code variants and evaluate them via a custom similarity metric.
+        - generic [ref=e32]:
+          - generic [ref=e33]: Python
+          - generic [ref=e34]: OpenCV
+          - generic [ref=e35]: PyTorch
+          - generic [ref=e36]: LangChain
+          - generic [ref=e37]: React
+          - generic [ref=e38]: FastAPI
+          - generic [ref=e39]: Docker
+      - generic [ref=e41]:
+        - paragraph [ref=e42]: Most design-to-code tools generate one output and call it done. CodeShot generates many, evaluates each, and lets the best one win. The system runs an agent loop that proposes a code variant, renders it, and compares the rendered output to the input mockup with a custom visual-similarity metric — pixel-aware but layout-tolerant. The loop continues until similarity stops improving.
+        - paragraph [ref=e43]: The inference path was the bottleneck. The naive implementation rendered each variant in series and took ~20 minutes per mockup, which is slower than a designer can hand-build the page. We moved the rendering pipeline onto NVIDIA H100s on CoreWeave, parallelized variant generation, and cut time-to-best-result from 20 minutes to 5. That is the difference between a research demo and something a team can actually use.
+        - paragraph [ref=e44]: Against v0 and bolt.new on a held-out test set of 40 marketing-page mockups, CodeShot scored ~5% higher on visual similarity at the same time budget. The result took second place at the Inference-Time Compute Hackathon. Cognition Labs surfaced the project on X.
+      - 'img "CodeShot architecture: design mockup feeds into agent loop with H100-backed renderer, candidate code variants are scored by visual similarity metric." [ref=e47]'
+      - generic [ref=e48]:
+        - generic [ref=e49]: Links
+        - generic [ref=e50]:
+          - link "X announcement (Cognition Labs)" [ref=e51] [cursor=pointer]:
+            - /url: https://x.com/cognition_labs/status/1896737373872103692
+            - generic [ref=e52]:
+              - img [ref=e53]
+              - text: X announcement (Cognition Labs)
+            - img [ref=e57]
+          - link "Demo video" [ref=e60] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=ib1SBuyamSY
+            - generic [ref=e61]:
+              - img [ref=e62]
+              - text: Demo video
+            - img [ref=e65]
+  - contentinfo [ref=e68]:
+    - generic [ref=e69]:
+      - generic [ref=e70]: © 2026 Joshua Vallabhaneni
+      - generic [ref=e71]:
+        - link "GitHub" [ref=e72] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni
+        - link "LinkedIn" [ref=e73] [cursor=pointer]:
+          - /url: https://linkedin.com/in/joshua-vallabhaneni
+        - link "Email" [ref=e74] [cursor=pointer]:
+          - /url: mailto:pjvallabhaneni@gmail.com
+        - button "Toggle theme" [ref=e75] [cursor=pointer]:
+          - img
+          - img [ref=e76]
+  - alert [ref=e78]

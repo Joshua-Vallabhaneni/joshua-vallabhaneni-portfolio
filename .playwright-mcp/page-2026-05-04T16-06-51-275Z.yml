@@ -1,0 +1,77 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Joshua Vallabhaneni" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+      - navigation [ref=e5]:
+        - link "Work" [ref=e6] [cursor=pointer]:
+          - /url: "#work"
+        - link "Experience" [ref=e7] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Education" [ref=e8] [cursor=pointer]:
+          - /url: "#education"
+        - link "Contact" [ref=e9] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Get in touch" [ref=e10] [cursor=pointer]:
+        - /url: mailto:pjvallabhaneni@gmail.com
+  - main [ref=e11]:
+    - article [ref=e12]:
+      - link "Back to work" [ref=e14] [cursor=pointer]:
+        - /url: /#work
+        - img [ref=e15]
+        - text: Back to work
+      - generic [ref=e17]:
+        - paragraph [ref=e18]: 2025 · PayPal infrastructure project
+        - heading "SwitchConfigSim" [level=1] [ref=e19]:
+          - generic "SwitchConfigSim" [ref=e20]:
+            - generic [ref=e22]:
+              - generic [ref=e23]: S
+              - generic [ref=e24]: w
+              - generic [ref=e25]: i
+              - generic [ref=e26]: t
+              - generic [ref=e27]: c
+              - generic [ref=e28]: h
+              - generic [ref=e29]: C
+              - generic [ref=e30]: o
+              - generic [ref=e31]: "n"
+              - generic [ref=e32]: f
+              - generic [ref=e33]: i
+              - generic [ref=e34]: g
+              - generic [ref=e35]: S
+              - generic [ref=e36]: i
+              - generic [ref=e37]: m
+        - paragraph [ref=e38]: A network switch management interface that mirrors enterprise-grade infrastructure patterns, with dual interfaces — CLI and REST API — that both execute identical backend automation.
+        - generic [ref=e39]:
+          - generic [ref=e40]: Go
+          - generic [ref=e41]: Shell
+          - generic [ref=e42]: REST APIs
+          - generic [ref=e43]: OpenAPI
+          - generic [ref=e44]: Linux
+          - generic [ref=e45]: Makefile
+      - generic [ref=e47]:
+        - paragraph [ref=e48]: Network engineers and platform teams want different ergonomics for the same job. Engineers want a CLI that reads like the real switch console; platform teams want a REST API they can wire into automation. The hardest part is making sure those two surfaces never drift — that the CLI and the API genuinely run the same backend and produce the same effects.
+        - paragraph [ref=e49]: SwitchConfigSim is structured around a single Go core that exposes both a Cobra-style CLI and a generated OpenAPI server. Every state-changing operation routes through the same automation script, so adding a new command means writing it once and getting both surfaces for free. The OpenAPI spec is the contract; the CLI is generated from the same handlers the API exposes.
+        - paragraph [ref=e50]: "The simulator runs against virtualized switch images on Linux, which means the same workflow that drives the test harness can be pointed at a real device with no code change. That is the part that makes this useful inside a large org: it collapses the gap between a learning environment and a production runbook."
+      - img "SwitchConfigSim CLI and REST API panels side by side, both calling the same Go backend handlers." [ref=e54]
+      - generic [ref=e57]:
+        - generic [ref=e58]: Links
+        - link "GitHub" [ref=e60] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni/SwitchConfigSim
+          - generic [ref=e61]:
+            - img [ref=e62]
+            - text: GitHub
+          - img [ref=e65]
+  - contentinfo [ref=e68]:
+    - generic [ref=e69]:
+      - generic [ref=e70]: © 2026 Joshua Vallabhaneni
+      - generic [ref=e71]:
+        - link "GitHub" [ref=e72] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni
+        - link "LinkedIn" [ref=e73] [cursor=pointer]:
+          - /url: https://linkedin.com/in/joshua-vallabhaneni
+        - link "Email" [ref=e74] [cursor=pointer]:
+          - /url: mailto:pjvallabhaneni@gmail.com
+        - button "Toggle theme" [ref=e75] [cursor=pointer]:
+          - img
+          - img [ref=e76]
+  - alert [ref=e78]

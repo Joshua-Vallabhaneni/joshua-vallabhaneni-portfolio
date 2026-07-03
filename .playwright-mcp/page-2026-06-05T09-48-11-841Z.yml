@@ -1,0 +1,69 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "Back to top" [ref=e4] [cursor=pointer]:
+        - /url: "#hero"
+      - navigation [ref=e6]:
+        - link "Work" [ref=e7] [cursor=pointer]:
+          - /url: "#work"
+        - link "Experience" [ref=e8] [cursor=pointer]:
+          - /url: "#experience"
+        - link "Education" [ref=e9] [cursor=pointer]:
+          - /url: "#education"
+        - link "Contact" [ref=e10] [cursor=pointer]:
+          - /url: "#contact"
+      - link "Get in touch" [ref=e11] [cursor=pointer]:
+        - /url: mailto:pjvallabhaneni@gmail.com
+  - main [ref=e12]:
+    - article [ref=e13]:
+      - link "Back to work" [ref=e15] [cursor=pointer]:
+        - /url: /#work
+        - img [ref=e16]
+        - text: Back to work
+      - generic [ref=e18]:
+        - paragraph [ref=e19]: 2025 · Inference-Time Compute Hackathon · 2nd Place
+        - heading "CodeShot" [level=1] [ref=e20]:
+          - generic [ref=e21]: CodeShot
+        - paragraph [ref=e22]: A system that converts design mockups into production-ready code by combining computer vision, reinforcement learning, and agent-based reasoning to explore code variants and evaluate them via a custom similarity metric.
+        - generic [ref=e23]:
+          - generic [ref=e24]: Python
+          - generic [ref=e25]: OpenCV
+          - generic [ref=e26]: PyTorch
+          - generic [ref=e27]: LangChain
+          - generic [ref=e28]: React
+          - generic [ref=e29]: FastAPI
+          - generic [ref=e30]: Docker
+      - generic [ref=e32]:
+        - paragraph [ref=e33]: Most design-to-code tools generate one output and call it done. CodeShot generates many, evaluates each, and lets the best one win. The system runs an agent loop that proposes a code variant, renders it, and compares the rendered output to the input mockup with a custom visual-similarity metric — pixel-aware but layout-tolerant. The loop continues until similarity stops improving.
+        - paragraph [ref=e34]: The inference path was the bottleneck. The naive implementation rendered each variant in series and took ~20 minutes per mockup, which is slower than a designer can hand-build the page. We moved the rendering pipeline onto NVIDIA H100s on CoreWeave, parallelized variant generation, and cut time-to-best-result from 20 minutes to 5. That is the difference between a research demo and something a team can actually use.
+        - paragraph [ref=e35]: Against v0 and bolt.new on a held-out test set of 40 marketing-page mockups, CodeShot scored ~5% higher on visual similarity at the same time budget. The result took second place at the Inference-Time Compute Hackathon. Cognition Labs surfaced the project on X.
+      - 'img "CodeShot architecture: design mockup feeds into agent loop with H100-backed renderer, candidate code variants are scored by visual similarity metric." [ref=e38]'
+      - generic [ref=e39]:
+        - generic [ref=e40]: Links
+        - generic [ref=e41]:
+          - link "X announcement (Cognition Labs)" [ref=e42] [cursor=pointer]:
+            - /url: https://x.com/cognition_labs/status/1896737373872103692
+            - generic [ref=e43]:
+              - img [ref=e44]
+              - text: X announcement (Cognition Labs)
+            - img [ref=e48]
+          - link "Demo video" [ref=e51] [cursor=pointer]:
+            - /url: https://www.youtube.com/watch?v=ib1SBuyamSY
+            - generic [ref=e52]:
+              - img [ref=e53]
+              - text: Demo video
+            - img [ref=e56]
+  - contentinfo [ref=e59]:
+    - generic [ref=e60]:
+      - generic [ref=e61]: © 2026 Joshua Vallabhaneni
+      - generic [ref=e62]:
+        - link "GitHub" [ref=e63] [cursor=pointer]:
+          - /url: https://github.com/Joshua-Vallabhaneni
+        - link "LinkedIn" [ref=e64] [cursor=pointer]:
+          - /url: https://linkedin.com/in/joshua-vallabhaneni
+        - link "Email" [ref=e65] [cursor=pointer]:
+          - /url: mailto:pjvallabhaneni@gmail.com
+        - button "Toggle theme" [ref=e66] [cursor=pointer]:
+          - img
+          - img [ref=e67]
+  - alert [ref=e69]

@@ -1,0 +1,15 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - generic [ref=e16] [cursor=pointer]:
+      - img [ref=e19]
+      - generic [ref=e21]: Discover
+    - generic [ref=e2] [cursor=pointer]: View All Projects
+  - generic [ref=e15]:
+    - generic:
+      - heading "Resn · Creative Studio Est. 2004" [level=1]:
+        - text: Resn · Creative Studio
+        - text: Est. 2004
+  - generic:
+    - generic:
+      - generic:
+        - generic: click & hold

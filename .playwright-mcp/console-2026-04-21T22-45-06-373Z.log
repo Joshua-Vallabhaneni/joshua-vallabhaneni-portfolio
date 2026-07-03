@@ -1,0 +1,10 @@
+[     705ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://webflow.com/api/user/authenticated:0
+[     894ms] [LOG] %c EvalError
+    at rQ (https://webflow.com/TG2vkiqj/init.js:2:73947)
+    at tS (https://webflow.com/TG2vkiqj/init.js:2:85969)
+    at NN (https://webflow.com/TG2vkiqj/init.js:2:244323)
+    at NL (https://webflow.com/TG2vkiqj/init.js:2:243940)
+    at https://webflow.com/TG2vkiqj/init.js:2:245681
+    at https://webflow.com/TG2vkiqj/init.js:2:245687
+    at https://webflow.com/TG2vkiqj/init.js:2:246152 @ https://webflow.com/TG2vkiqj/init.js:1
+[    2408ms] [ERROR] Failed to load resource: the server responded with a status of 401 () @ https://webflow.com/api/workspaces:0

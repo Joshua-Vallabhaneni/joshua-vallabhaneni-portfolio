@@ -6,10 +6,10 @@ import { smoothScrollTo } from "./motion/smoothScrollTo";
 import { ScrollProgress } from "./motion/ScrollProgress";
 
 const sections = [
-  { id: "work", label: "Work" },
+  { id: "work", label: "Projects" },
+  { id: "freelance", label: "Freelance" },
   { id: "experience", label: "Experience" },
   { id: "education", label: "Education" },
-  { id: "contact", label: "Contact" },
 ];
 
 export default function TopNav() {
@@ -46,19 +46,18 @@ export default function TopNav() {
         scrolled ? "backdrop-blur-md bg-background/70 border-b border-border/60" : "bg-transparent"
       }`}
     >
-      <div className="container-editorial flex items-center justify-between h-16">
+      <div className="container-editorial flex items-center justify-between h-14">
         <Link
           href="#hero"
           onClick={(e) => {
             e.preventDefault();
             smoothScrollTo("hero");
           }}
-          aria-label="Back to top"
-          className="text-sm font-medium tracking-tight inline-flex items-center justify-center w-6 h-6"
+          className="text-sm font-medium tracking-tight"
         >
-          <span className="inline-block h-1.5 w-1.5 rounded-full bg-foreground" />
+          JV
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="flex items-center gap-5 sm:gap-6">
           {sections.map((s) => (
             <a
               key={s.id}
@@ -75,12 +74,6 @@ export default function TopNav() {
             </a>
           ))}
         </nav>
-        <a
-          href="mailto:pjvallabhaneni@gmail.com"
-          className="text-sm font-medium link-underline hidden sm:inline-block"
-        >
-          Get in touch
-        </a>
       </div>
       <ScrollProgress />
     </header>

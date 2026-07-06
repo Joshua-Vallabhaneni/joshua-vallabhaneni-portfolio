@@ -3,29 +3,8 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 8%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 8%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 8%;
-    --primary: 0 0% 8%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 8%;
-    --muted: 0 0% 95%;
-    --muted-foreground: 0 0% 42%;
-    --accent: 0 0% 94%;
-    --accent-foreground: 0 0% 8%;
-    --destructive: 0 72% 45%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 0 0% 40%;
-    --radius: 0.5rem;
-  }
-
+  /* Dark-only palette. */
+  :root,
   .dark {
     --background: 0 0% 6%;
     --foreground: 0 0% 96%;
@@ -46,10 +25,18 @@
     --border: 0 0% 16%;
     --input: 0 0% 16%;
     --ring: 0 0% 70%;
+    --radius: 0.5rem;
   }
 
   * {
     @apply border-border;
+  }
+
+  /* framer-motion measures section scroll offsets against the root scroll
+     container (<html>); a non-static position lets it compute offsets without
+     warning. */
+  html {
+    position: relative;
   }
 
   body {
@@ -111,7 +98,7 @@
 
 @layer components {
   .container-editorial {
-    @apply mx-auto w-full max-w-[1280px] px-6 md:px-10 lg:px-16;
+    @apply mx-auto w-full max-w-[42rem] px-6;
   }
 }
 

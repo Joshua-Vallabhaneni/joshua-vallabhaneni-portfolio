@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/mode-toggle";
 import { Analytics } from "@vercel/analytics/react";
 import TopNav from "./components/TopNav";
 import { ScrollTriggerCleanup } from "./components/motion/ScrollTriggerCleanup";
@@ -26,28 +25,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head />
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark">
           <ScrollTriggerCleanup />
           <TopNav />
           <main>{children}</main>
           <footer className="hairline">
-            <div className="container-editorial flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 py-10 text-sm text-muted-foreground">
+            <div className="container-editorial flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 py-10 text-sm text-muted-foreground">
               <span>© {new Date().getFullYear()} Joshua Vallabhaneni</span>
-              <div className="flex items-center gap-6">
-                <a href="https://github.com/Joshua-Vallabhaneni" target="_blank" rel="noopener noreferrer" className="link-underline">
-                  GitHub
-                </a>
-                <a href="https://linkedin.com/in/joshua-vallabhaneni" target="_blank" rel="noopener noreferrer" className="link-underline">
-                  LinkedIn
-                </a>
-                <a href="mailto:pjvallabhaneni@gmail.com" className="link-underline">
-                  Email
-                </a>
-                <ModeToggle />
-              </div>
+              <span>College Park, MD</span>
             </div>
           </footer>
           <Analytics />

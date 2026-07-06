@@ -21,8 +21,8 @@ export default function AnimatedSectionHeader({
       {eyebrow && (
         <motion.p
           className="eyebrow mb-4"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.4 }}
         >
@@ -31,8 +31,8 @@ export default function AnimatedSectionHeader({
       )}
       <motion.h2
         className="display text-4xl md:text-6xl lg:text-7xl text-foreground"
-        initial={{ opacity: 0, y: 12 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ y: 12 }}
+        whileInView={{ y: 0 }}
         viewport={{ once: true, amount: 0.6 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
@@ -41,8 +41,8 @@ export default function AnimatedSectionHeader({
       {subtitle && (
         <motion.p
           className="mt-5 text-base md:text-lg text-muted-foreground max-w-xl"
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ y: 8 }}
+          whileInView={{ y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >

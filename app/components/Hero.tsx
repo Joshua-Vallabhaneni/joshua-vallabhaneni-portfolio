@@ -20,7 +20,9 @@ export default function Hero() {
 
         <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-muted-foreground">
           <a
-            href="mailto:pjvallabhaneni@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=pjvallabhaneni@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="link-underline-reveal inline-flex items-center gap-1 hover:text-foreground transition-colors"
           >
             Email

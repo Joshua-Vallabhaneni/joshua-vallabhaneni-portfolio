@@ -18,7 +18,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Joshua Vallabhaneni — Engineer & Researcher",
+  title: "Joshua Vallabhaneni Portfolio",
   description:
     "Portfolio of Joshua Vallabhaneni — full-stack engineer and ML researcher at the University of Maryland.",
 };
